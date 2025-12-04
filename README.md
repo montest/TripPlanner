@@ -25,7 +25,7 @@ A beautiful, interactive web application to plan a perfect 4-day birthday trip f
 1. Clone the repository:
 ```bash
 git clone <your-repo-url>
-cd NamourBirthday
+cd TripPlanner
 ```
 
 2. Install dependencies:
@@ -56,7 +56,7 @@ This project is configured for automatic deployment to GitHub Pages:
 2. Go to Settings → Pages in your repository
 3. Select "GitHub Actions" as the source
 4. The site will automatically deploy on every push to the `main` branch
-5. Your site will be available at: `https://[username].github.io/NamourBirthday/`
+5. Your site will be available at: `https://[username].github.io/TripPlanner/`
 
 ## Adding or Editing Destinations
 
@@ -98,7 +98,7 @@ export const emailRecipients = [
 ## Project Structure
 
 ```
-NamourBirthday/
+TripPlanner/
 ├── src/
 │   ├── components/          # React components
 │   ├── data/               # Destination data (easy to edit!)

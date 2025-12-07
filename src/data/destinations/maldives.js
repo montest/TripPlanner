@@ -65,12 +65,12 @@ export default {
         image: ""
       },
       afternoon: {
-        text: "Enregistrement de départ, transfert en hydravion vers l'aéroport",
-        image: ""
-      },
-      evening: {
         text: "Vol de retour vers Abu Dhabi",
         image: "https://cdn.prod.website-files.com/65f8a2608247a99bd7aaba13/683ef923c63703391cf8d18e_Abu%20dhabi%20airport%20drop%20off.jpg"
+      },
+      evening: {
+        text: "Dodo dans notre lit",
+        image: ""
       }
     }
   }

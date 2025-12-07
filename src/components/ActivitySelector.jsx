@@ -6,39 +6,66 @@ function ActivitySelector({
   allDestinations, 
   selectedTheme,
   selectedActivities, 
-  onDestinationSelect,
+  cart,
+  onAddToCart,
+  onRemoveFromCart,
+  onOpenCart,
   onBack 
 }) {
   // Filter destinations based on selected theme
   const filteredDestinations = useMemo(() => {
     if (!allDestinations || allDestinations.length === 0) return []
     
+    let filtered = []
+    
     // Filter by theme
     if (selectedTheme) {
-      return allDestinations.filter(dest => {
+      filtered = allDestinations.filter(dest => {
         return dest.themes && dest.themes.includes(selectedTheme.id)
       })
+    } else {
+      filtered = allDestinations
     }
 
-    return allDestinations
+    // Sort alphabetically by name
+    return filtered.sort((a, b) => {
+      const nameA = a.name || ''
+      const nameB = b.name || ''
+      return nameA.localeCompare(nameB, 'fr', { sensitivity: 'base' })
+    })
   }, [allDestinations, selectedTheme])
+
+  const cartCount = cart.length
+  const isCartFull = cartCount >= 3
 
   return (
     <div className="activity-selector">
-      <button className="back-button" onClick={onBack}>
-        ← Retour
-      </button>
-      
-      <h2>Choisissez Votre Destination</h2>
-      <p className="instruction-text">
-        {selectedTheme && (
-          <span className="selected-theme-badge">
-            Thème : {selectedTheme.name} {selectedTheme.icon}
-          </span>
+      <div className="activity-selector-header">
+        <button className="back-button" onClick={onBack}>
+          ← Retour
+        </button>
+        {cartCount > 0 && (
+          <button className="cart-icon-button" onClick={onOpenCart}>
+            🛒 Panier
+            <span className="cart-badge">{cartCount}/3</span>
+          </button>
         )}
-        <br />
-        Sélectionnez une destination qui correspond à votre thème
-      </p>
+      </div>
+      
+      {selectedTheme ? (
+        <div className="theme-title-section">
+          <h2 className="theme-title">
+            {selectedTheme.icon} {selectedTheme.name}
+          </h2>
+          <p className="theme-subtitle">
+            Sélectionne jusqu'à 3 destinations à comparer (actuellement {cartCount}/3)
+          </p>
+        </div>
+      ) : (
+        <h2>
+          Toutes les destinations disponibles ({cartCount}/3 sélectionnées)
+        </h2>
+      )}
 
       <div className="map-section">
         <DestinationMap destinations={filteredDestinations} />
@@ -47,7 +74,9 @@ function ActivitySelector({
       <div className="destinations-section">
         <h3>
           {filteredDestinations.length > 0 
-            ? `Destinations Correspondantes (${filteredDestinations.length})`
+            ? selectedTheme
+              ? `Destinations Correspondantes (${filteredDestinations.length})`
+              : `Toutes les Destinations (${filteredDestinations.length})`
             : `Aucune Destination Correspondante`}
         </h3>
         
@@ -64,7 +93,10 @@ function ActivitySelector({
                 key={destination.name}
                 destination={destination}
                 selectedActivities={selectedActivities}
-                onClick={() => onDestinationSelect(destination)}
+                inCart={cart.some(d => d.name === destination.name)}
+                cartFull={isCartFull}
+                onAddToCart={onAddToCart}
+                onRemoveFromCart={onRemoveFromCart}
               />
             ))}
           </div>

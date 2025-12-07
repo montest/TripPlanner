@@ -63,7 +63,7 @@ export default {
     day4: {
       morning: {
         text: "Petit-déjeuner tranquille, transfert vers l'aéroport d'Amman (3 heures)",
-        image: "https://images.unsplash.com/photo-1559827260-dbea01e5e788?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+        image: "https://pix10.agoda.net/hotelImages/6605853/-1/84fff692d0a4a9133dadcdb313093594.jpg?ca=7&ce=1&s=414x232"
       },
       afternoon: {
         text: "Vol de retour vers Abu Dhabi",

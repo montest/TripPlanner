@@ -8,7 +8,7 @@ export default {
   name: "Colombo, Sri Lanka",
   flightTime: "4 hours",
   coordinates: { lat: 6.9271, lng: 79.8612 },
-  image: "https://images.unsplash.com/photo-1559827260-dbea01e5e788?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+  image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX8xaVcLvT0Twm3KUbAh559d_x0NTyFyGtNQ&s",
   themes: ["traditional-culture", "historic-cultural"],
   description: "Capitale vibrante avec architecture coloniale, temples et culture riche",
   activities: {
@@ -21,11 +21,11 @@ export default {
     day1: {
       morning: {
         text: "Arrivée à l'aéroport de Colombo, enregistrement à l'hôtel, petit-déjeuner",
-        image: ""
+        image: "https://airssist.com/wp-content/uploads/2017/04/Colombo-Bandaranaike-International-Airport.jpg"
       },
       afternoon: {
         text: "Visite du Temple Gangaramaya, exploration du Marché de Pettah, déjeuner",
-        image: ""
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPEYk9RoY2SO968hGx-P29QewbGuddhxso-A&s"
       },
       evening: {
         text: "Promenade d'architecture coloniale, dîner au restaurant gastronomique, Galle Face Green",
@@ -39,39 +39,39 @@ export default {
       },
       afternoon: {
         text: "Déjeuner, visite de l'Independence Square, shopping à Odel ou Barefoot",
-        image: ""
+        image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/21/b6/ba/70/3.jpg?w=900&h=500&s=1"
       },
       evening: {
         text: "Dîner sri-lankais traditionnel, spectacle de danse culturelle",
-        image: ""
+        image: "https://vietnamdecouverte.com/pic/blog/7033cce0-c98e-4957-b110-f009e70efc5a.jpg"
       }
     },
     day3: {
       morning: {
         text: "Petit-déjeuner, excursion d'une journée à Kandy (Temple de la Dent, Jardins Botaniques Royaux)",
-        image: ""
+        image: "https://unepartdumonde.fr/wp-content/uploads/2017/01/mirissa-petit-d%C3%A9jeuner.jpg"
       },
       afternoon: {
         text: "Déjeuner à Kandy, retour à Colombo, temps sur la plage",
-        image: ""
+        image: "https://www.srilankainstyle.com/storage/app/media/uploaded-files/7-reasons-to-visit-kandy-in-sri-lanka-slider-1.jpg"
       },
       evening: {
         text: "Dîner de fruits de mer, vie nocturne à Colombo",
-        image: ""
+        image: "https://www.valampuriresort.com/images/home/seafood-1.jpg"
       }
     },
     day4: {
       morning: {
         text: "Petit-déjeuner, shopping de dernière minute pour épices et artisanat",
-        image: ""
+        image: "https://images.prismic.io/travelfika/Z_TIvHdAxsiBwbUp_spices-pixabay-pic-280120-1.jpg?auto=format,compress"
       },
       afternoon: {
-        text: "Enregistrement de départ, visite de la plage ou dernière exploration de la ville, transfert vers l'aéroport",
-        image: ""
-      },
-      evening: {
         text: "Vol de retour vers Abu Dhabi",
         image: "https://cdn.prod.website-files.com/65f8a2608247a99bd7aaba13/683ef923c63703391cf8d18e_Abu%20dhabi%20airport%20drop%20off.jpg"
+      },
+      evening: {
+        text: "Dodo dans notre lit",
+        image: ""
       }
     }
   }

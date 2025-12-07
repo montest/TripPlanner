@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { generateItinerary } from '../utils/itineraryGenerator'
 import { sendItineraryEmail } from '../utils/emailService'
 import { generateMarkdown, markdownToHtml } from '../utils/markdownGenerator'
+import { emailRecipients } from '../config/emailConfig'
 
 function ItineraryDisplay({ destination, selectedActivities, onBack, onReset }) {
   const [isSending, setIsSending] = useState(false)
@@ -313,7 +314,16 @@ function ItineraryDisplay({ destination, selectedActivities, onBack, onReset }) 
     setEmailStatus(null)
     
     try {
-      const result = await sendItineraryEmail(itinerary, emailInput.trim())
+      // Get secondary recipient from config (first email in the array)
+      const secondaryRecipient = emailRecipients && emailRecipients.length > 0 
+        ? emailRecipients[0] 
+        : null
+      
+      if (!secondaryRecipient) {
+        throw new Error('Aucune adresse email secondaire configurée. Veuillez configurer emailRecipients dans src/config/emailConfig.js')
+      }
+
+      const result = await sendItineraryEmail(itinerary, emailInput.trim(), secondaryRecipient)
       setEmailStatus('success')
       setShowEmailModal(false)
       setEmailInput('')
@@ -480,7 +490,7 @@ function ItineraryDisplay({ destination, selectedActivities, onBack, onReset }) 
             
             {emailStatus === 'success' && (
               <p className="email-status success">
-                ✅ Itinéraire envoyé avec succès !
+                ✅ Itinéraire envoyé avec succès aux deux adresses email !
               </p>
             )}
             
@@ -529,7 +539,7 @@ function ItineraryDisplay({ destination, selectedActivities, onBack, onReset }) 
                   <p className="email-input-error">{emailError}</p>
                 )}
                 <p className="email-modal-note">
-                  L'email sera également envoyé en copie à l'adresse configurée.
+                  L'email sera envoyé à l'adresse que vous entrez ainsi qu'à l'adresse configurée ({emailRecipients && emailRecipients.length > 0 ? emailRecipients[0] : 'non configurée'}).
                 </p>
               </div>
               <div className="email-modal-footer">

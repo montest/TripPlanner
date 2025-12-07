@@ -1,4 +1,9 @@
-function DestinationCard({ destination, selectedActivities, onClick }) {
+import { useState } from 'react'
+import { generateItinerary } from '../utils/itineraryGenerator'
+
+function DestinationCard({ destination, selectedActivities, inCart, cartFull, onAddToCart, onRemoveFromCart }) {
+  const [showItineraryModal, setShowItineraryModal] = useState(false)
+  
   const getMatchingActivities = () => {
     if (selectedActivities.length === 0) return []
     
@@ -12,13 +17,39 @@ function DestinationCard({ destination, selectedActivities, onClick }) {
   }
 
   const matchingActivities = getMatchingActivities()
+  const itinerary = generateItinerary(destination, selectedActivities || [])
 
   const displayName = destination.planName 
     ? `${destination.name} - ${destination.planName}`
     : destination.name
 
+  const handleCardClick = (e) => {
+    // Don't open modal if clicking on the button or footer area
+    if (e.target.closest('.destination-footer') || e.target.closest('.select-button')) {
+      return
+    }
+    setShowItineraryModal(true)
+  }
+
+  const handleButtonClick = (e) => {
+    e.stopPropagation()
+    if (inCart && onRemoveFromCart) {
+      onRemoveFromCart(destination.name)
+    } else if (!inCart && !cartFull && onAddToCart) {
+      onAddToCart(destination)
+    }
+  }
+
+  const handleCloseModal = (e) => {
+    if (e) {
+      e.stopPropagation()
+    }
+    setShowItineraryModal(false)
+  }
+
   return (
-    <div className="destination-card" onClick={onClick}>
+    <>
+      <div className="destination-card" onClick={handleCardClick} style={{ cursor: 'pointer' }}>
       {destination.image && (
         <div className="destination-image-container">
           <img 
@@ -56,10 +87,109 @@ function DestinationCard({ destination, selectedActivities, onClick }) {
         )}
         
         <div className="destination-footer">
-          <button className="select-button">Select This Destination</button>
+          <button 
+            className={`select-button ${inCart ? 'in-cart' : ''} ${cartFull && !inCart ? 'disabled' : ''}`}
+            onClick={handleButtonClick}
+            disabled={cartFull && !inCart}
+          >
+            {inCart ? '✕ Retirer du panier' : cartFull ? 'Panier plein (3/3)' : 'Ajouter au panier'}
+          </button>
         </div>
       </div>
-    </div>
+      </div>
+
+      {/* Itinerary Modal */}
+      {showItineraryModal && itinerary && (
+        <div className="itinerary-modal-overlay" onClick={handleCloseModal}>
+          <div className="itinerary-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="itinerary-modal-header">
+              <h3>📅 Itinéraire complet - {displayName}</h3>
+              <button className="itinerary-modal-close" onClick={handleCloseModal}>×</button>
+            </div>
+            <div className="itinerary-modal-body">
+              <div className="itinerary-preview">
+                <div className="itinerary-preview-header">
+                  <p className="flight-info">✈️ Temps de vol : {itinerary.flightTime} depuis Abu Dhabi</p>
+                  <p className="destination-description">{itinerary.description}</p>
+                </div>
+                
+                <div className="itinerary-preview-days">
+                  {itinerary.days.map((day) => (
+                    <div key={day.day} className="itinerary-preview-day">
+                      <h4 className="day-preview-title">Jour {day.day}</h4>
+                      <div className="day-preview-schedule">
+                        {/* Morning - image left, text right */}
+                        <div className="time-slot-preview time-slot-preview-morning">
+                          <strong>🌅 Matin :</strong>
+                          <div className="time-slot-preview-content">
+                            {day.morning?.image && (
+                              <div className="time-slot-preview-image">
+                                <img 
+                                  src={day.morning.image} 
+                                  alt="Activité du matin"
+                                  className="preview-activity-image"
+                                  onError={(e) => {
+                                    e.target.style.display = 'none'
+                                  }}
+                                />
+                              </div>
+                            )}
+                            <p>{day.morning?.text || day.morning || ''}</p>
+                          </div>
+                        </div>
+                        {/* Afternoon - text left, image right */}
+                        <div className="time-slot-preview time-slot-preview-afternoon">
+                          <strong>☀️ Après-midi :</strong>
+                          <div className="time-slot-preview-content time-slot-preview-afternoon-content">
+                            <p>{day.afternoon?.text || day.afternoon || ''}</p>
+                            {day.afternoon?.image && (
+                              <div className="time-slot-preview-image">
+                                <img 
+                                  src={day.afternoon.image} 
+                                  alt="Activité de l'après-midi"
+                                  className="preview-activity-image"
+                                  onError={(e) => {
+                                    e.target.style.display = 'none'
+                                  }}
+                                />
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                        {/* Evening - image left, text right */}
+                        <div className="time-slot-preview time-slot-preview-evening">
+                          <strong>🌙 Soirée :</strong>
+                          <div className="time-slot-preview-content">
+                            {day.evening?.image && (
+                              <div className="time-slot-preview-image">
+                                <img 
+                                  src={day.evening.image} 
+                                  alt="Activité du soir"
+                                  className="preview-activity-image"
+                                  onError={(e) => {
+                                    e.target.style.display = 'none'
+                                  }}
+                                />
+                              </div>
+                            )}
+                            <p>{day.evening?.text || day.evening || ''}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="itinerary-modal-footer">
+              <button className="itinerary-modal-close-button" onClick={handleCloseModal}>
+                Fermer
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   )
 }
 

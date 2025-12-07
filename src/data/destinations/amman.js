@@ -35,7 +35,7 @@ export default {
     day2: {
       morning: {
         text: "Petit-déjeuner, visite du Musée Archéologique, exploration du Musée du Folklore",
-        image: ""
+        image: "https://tzmedia.b-cdn.net/media/images/jo/place/max/2ff36aaef667d814aab8804a0abaf1b3.jpg?1582270511"
       },
       afternoon: {
         text: "Déjeuner, shopping à Rainbow Street, visite des souks locaux",
@@ -57,7 +57,7 @@ export default {
       },
       evening: {
         text: "Dîner au restaurant avec vue sur la ville, vie nocturne à Amman",
-        image: ""
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRos_54ZoGJm3ZA6QhSLpz3bm-iqx9rIFmCdA&s"
       }
     },
     day4: {

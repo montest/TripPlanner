@@ -1,4 +1,5 @@
-import { MapContainer, TileLayer, Marker, Popup, Polyline } from 'react-leaflet'
+import { useEffect, useRef } from 'react'
+import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from 'react-leaflet'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 
@@ -64,22 +65,104 @@ function generateArcPoints(start, end, numPoints = 50) {
   return points
 }
 
+// Component to handle map reset functionality
+function ResetZoomButton({ center, zoom }) {
+  const map = useMap()
+
+  const handleReset = () => {
+    map.setView(center, zoom)
+  }
+
+  return (
+    <button 
+      className="map-reset-zoom-button"
+      onClick={handleReset}
+      title="Réinitialiser le zoom"
+    >
+      🔍 Réinitialiser
+    </button>
+  )
+}
+
+// Component to handle scroll wheel zoom with modifier key requirement
+function ScrollWheelZoomHandler() {
+  const map = useMap()
+  const mapRef = useRef(null)
+
+  useEffect(() => {
+    const mapContainer = map.getContainer()
+    mapRef.current = mapContainer
+
+    const handleWheel = (e) => {
+      // Check if Cmd (Mac) or Ctrl (Windows/Linux) is pressed
+      const isModifierPressed = e.metaKey || e.ctrlKey
+      
+      if (!isModifierPressed) {
+        // Prevent default scroll zoom behavior
+        e.preventDefault()
+        // Allow normal page scrolling
+        return false
+      }
+      
+      // If modifier is pressed, allow zoom
+      // Leaflet will handle the zoom automatically if scrollWheelZoom is enabled
+      // But we need to manually handle it since we disabled scrollWheelZoom
+      const delta = e.deltaY
+      const zoom = map.getZoom()
+      
+      if (delta < 0) {
+        // Scroll up - zoom in
+        map.setZoom(zoom + 1)
+      } else {
+        // Scroll down - zoom out
+        map.setZoom(zoom - 1)
+      }
+      
+      e.preventDefault()
+      return false
+    }
+
+    mapContainer.addEventListener('wheel', handleWheel, { passive: false })
+
+    return () => {
+      mapContainer.removeEventListener('wheel', handleWheel)
+    }
+  }, [map])
+
+  return null
+}
+
 function DestinationMap({ destinations, center = ABU_DHABI_COORDS, zoom = 3 }) {
-  // Filter destinations that have coordinates
-  const destinationsWithCoords = destinations.filter(dest => dest.coordinates && dest.coordinates.lat && dest.coordinates.lng)
+  // Filter destinations that have coordinates and sort alphabetically
+  const destinationsWithCoords = destinations
+    .filter(dest => dest.coordinates && dest.coordinates.lat && dest.coordinates.lng)
+    .sort((a, b) => {
+      const nameA = a.name || ''
+      const nameB = b.name || ''
+      return nameA.localeCompare(nameB, 'fr', { sensitivity: 'base' })
+    })
 
   return (
     <div className="destination-map-container">
+      <div className="map-zoom-hint">
+        <span className="zoom-hint-text">
+          {navigator.platform.toLowerCase().includes('mac') 
+            ? '⌘ + Scroll pour zoomer' 
+            : 'Ctrl + Scroll pour zoomer'}
+        </span>
+      </div>
       <MapContainer
         center={center}
         zoom={zoom}
         style={{ height: '400px', width: '100%', borderRadius: '8px' }}
-        scrollWheelZoom={true}
+        scrollWheelZoom={false}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+        <ScrollWheelZoomHandler />
+        <ResetZoomButton center={center} zoom={zoom} />
         {/* Draw arcs from Abu Dhabi to each destination */}
         {destinationsWithCoords.map((destination, index) => {
           const destCoords = [destination.coordinates.lat, destination.coordinates.lng]

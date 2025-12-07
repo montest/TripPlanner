@@ -71,8 +71,7 @@ export function generateMarkdown(itinerary) {
   })
   
   md += `---\n\n`
-  md += `💝 Passez un merveilleux voyage d'anniversaire !\n\n`
-  md += `*Cet itinéraire est un guide - n'hésitez pas à l'ajuster selon vos préférences.*\n`
+  md += `🥔 Ceci est un itinéraire de base. On l'ajustera 🥔\n\n`
   
   return md
 }

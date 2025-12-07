@@ -32,19 +32,46 @@ export default {
       }
     },
     day2: {
-      morning: "Séance de yoga tôt le matin, petit-déjeuner, excursion de snorkeling vers les récifs coralliens",
-      afternoon: "Déjeuner au resort, soin spa pour deux, détente sur la plage",
-      evening: "Tour de saut d'île en île, dîner au restaurant de plage avec musique live"
+      morning: {
+        text: "Séance de yoga tôt le matin, petit-déjeuner, excursion de snorkeling vers les récifs coralliens",
+        image: ""
+      },
+      afternoon: {
+        text: "Déjeuner au resort, soin spa pour deux, détente sur la plage",
+        image: ""
+      },
+      evening: {
+        text: "Tour de saut d'île en île, dîner au restaurant de plage avec musique live",
+        image: ""
+      }
     },
     day3: {
-      morning: "Excursion de plongée sous-marine (ou sports nautiques), buffet petit-déjeuner",
-      afternoon: "Cabana de plage privée, déjeuner, massage en couple au spa",
-      evening: "Excursion de pêche au coucher du soleil, préparation du dîner avec la prise fraîche, observation des étoiles"
+      morning: {
+        text: "Excursion de plongée sous-marine (ou sports nautiques), buffet petit-déjeuner",
+        image: ""
+      },
+      afternoon: {
+        text: "Cabana de plage privée, déjeuner, massage en couple au spa",
+        image: ""
+      },
+      evening: {
+        text: "Excursion de pêche au coucher du soleil, préparation du dîner avec la prise fraîche, observation des étoiles",
+        image: ""
+      }
     },
     day4: {
-      morning: "Dernier moment sur la plage, petit-déjeuner, shopping de dernière minute pour souvenirs",
-      afternoon: "Enregistrement de départ, transfert en hydravion vers l'aéroport",
-      evening: "Vol de retour vers Abu Dhabi"
+      morning: {
+        text: "Dernier moment sur la plage, petit-déjeuner, shopping de dernière minute pour souvenirs",
+        image: ""
+      },
+      afternoon: {
+        text: "Enregistrement de départ, transfert en hydravion vers l'aéroport",
+        image: ""
+      },
+      evening: {
+        text: "Vol de retour vers Abu Dhabi",
+        image: "https://cdn.prod.website-files.com/65f8a2608247a99bd7aaba13/683ef923c63703391cf8d18e_Abu%20dhabi%20airport%20drop%20off.jpg"
+      }
     }
   }
 }

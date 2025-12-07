@@ -19,24 +19,60 @@ export default {
   },
   itinerary: {
     day1: {
-      morning: "Arrivée à l'aéroport de Doha, enregistrement à l'hôtel, petit-déjeuner",
-      afternoon: "Visite du Musée d'Art Islamique, exploration de la Corniche, déjeuner",
-      evening: "Exploration du Souq Waqif, dîner au restaurant traditionnel, promenade nocturne"
+      morning: {
+        text: "Arrivée à l'aéroport de Doha, enregistrement à l'hôtel, petit-déjeuner",
+        image: ""
+      },
+      afternoon: {
+        text: "Visite du Musée d'Art Islamique, exploration de la Corniche, déjeuner",
+        image: ""
+      },
+      evening: {
+        text: "Exploration du Souq Waqif, dîner au restaurant traditionnel, promenade nocturne",
+        image: ""
+      }
     },
     day2: {
-      morning: "Petit-déjeuner, visite du Katara Cultural Village, exploration de l'architecture moderne",
-      afternoon: "Déjeuner, shopping à The Pearl-Qatar ou Villaggio Mall",
-      evening: "Croisière en dhow traditionnel au coucher du soleil, dîner au restaurant avec vue sur la baie"
+      morning: {
+        text: "Petit-déjeuner, visite du Katara Cultural Village, exploration de l'architecture moderne",
+        image: ""
+      },
+      afternoon: {
+        text: "Déjeuner, shopping à The Pearl-Qatar ou Villaggio Mall",
+        image: ""
+      },
+      evening: {
+        text: "Croisière en dhow traditionnel au coucher du soleil, dîner au restaurant avec vue sur la baie",
+        image: ""
+      }
     },
     day3: {
-      morning: "Petit-déjeuner, visite du Musée National du Qatar, exploration de l'architecture futuriste",
-      afternoon: "Déjeuner, visite du Souq Waqif pour shopping d'artisanat, café traditionnel",
-      evening: "Dîner gastronomique, bar sur le toit avec vue panoramique, vie nocturne"
+      morning: {
+        text: "Petit-déjeuner, visite du Musée National du Qatar, exploration de l'architecture futuriste",
+        image: ""
+      },
+      afternoon: {
+        text: "Déjeuner, visite du Souq Waqif pour shopping d'artisanat, café traditionnel",
+        image: ""
+      },
+      evening: {
+        text: "Dîner gastronomique, bar sur le toit avec vue panoramique, vie nocturne",
+        image: ""
+      }
     },
     day4: {
-      morning: "Petit-déjeuner, dernière visite ou shopping de souvenirs",
-      afternoon: "Enregistrement de départ, transfert vers l'aéroport",
-      evening: "Vol de retour vers Abu Dhabi"
+      morning: {
+        text: "Petit-déjeuner, dernière visite ou shopping de souvenirs",
+        image: ""
+      },
+      afternoon: {
+        text: "Enregistrement de départ, transfert vers l'aéroport",
+        image: ""
+      },
+      evening: {
+        text: "Vol de retour vers Abu Dhabi",
+        image: "https://cdn.prod.website-files.com/65f8a2608247a99bd7aaba13/683ef923c63703391cf8d18e_Abu%20dhabi%20airport%20drop%20off.jpg"
+      }
     }
   }
 }

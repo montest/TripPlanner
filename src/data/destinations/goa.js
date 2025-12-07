@@ -19,24 +19,60 @@ export default {
   },
   itinerary: {
     day1: {
-      morning: "Arrivée à l'aéroport de Goa, transfert vers le resort de plage, enregistrement",
-      afternoon: "Déjeuner de bienvenue, temps sur la plage à Calangute ou Baga Beach, exploration du resort",
-      evening: "Coucher du soleil à Anjuna Beach, dîner dans une cabane de plage, visite du marché de nuit"
+      morning: {
+        text: "Arrivée à l'aéroport de Goa, transfert vers le resort de plage, enregistrement",
+        image: ""
+      },
+      afternoon: {
+        text: "Déjeuner de bienvenue, temps sur la plage à Calangute ou Baga Beach, exploration du resort",
+        image: ""
+      },
+      evening: {
+        text: "Coucher du soleil à Anjuna Beach, dîner dans une cabane de plage, visite du marché de nuit",
+        image: ""
+      }
     },
     day2: {
-      morning: "Petit-déjeuner, visite de la vieille Goa (Basilique du Bom Jesus, Cathédrale Se)",
-      afternoon: "Déjeuner, visite de plantation d'épices, démonstration de cuisine goanaise traditionnelle",
-      evening: "Retour à la plage, croisière au coucher du soleil, dîner au restaurant portugais"
+      morning: {
+        text: "Petit-déjeuner, visite de la vieille Goa (Basilique du Bom Jesus, Cathédrale Se)",
+        image: ""
+      },
+      afternoon: {
+        text: "Déjeuner, visite de plantation d'épices, démonstration de cuisine goanaise traditionnelle",
+        image: ""
+      },
+      evening: {
+        text: "Retour à la plage, croisière au coucher du soleil, dîner au restaurant portugais",
+        image: ""
+      }
     },
     day3: {
-      morning: "Tour d'observation des dauphins tôt le matin, petit-déjeuner sur le bateau",
-      afternoon: "Sports nautiques (parapente, jet ski), détente sur la plage, déjeuner",
-      evening: "Séance spa ayurvédique, dîner en bord de plage avec musique live"
+      morning: {
+        text: "Tour d'observation des dauphins tôt le matin, petit-déjeuner sur le bateau",
+        image: ""
+      },
+      afternoon: {
+        text: "Sports nautiques (parapente, jet ski), détente sur la plage, déjeuner",
+        image: ""
+      },
+      evening: {
+        text: "Séance spa ayurvédique, dîner en bord de plage avec musique live",
+        image: ""
+      }
     },
     day4: {
-      morning: "Dernier moment sur la plage, petit-déjeuner, shopping de souvenirs aux marchés locaux",
-      afternoon: "Enregistrement de départ, visite du Fort Aguada, transfert vers l'aéroport",
-      evening: "Vol de retour vers Abu Dhabi"
+      morning: {
+        text: "Dernier moment sur la plage, petit-déjeuner, shopping de souvenirs aux marchés locaux",
+        image: ""
+      },
+      afternoon: {
+        text: "Enregistrement de départ, visite du Fort Aguada, transfert vers l'aéroport",
+        image: ""
+      },
+      evening: {
+        text: "Vol de retour vers Abu Dhabi",
+        image: "https://cdn.prod.website-files.com/65f8a2608247a99bd7aaba13/683ef923c63703391cf8d18e_Abu%20dhabi%20airport%20drop%20off.jpg"
+      }
     }
   }
 }

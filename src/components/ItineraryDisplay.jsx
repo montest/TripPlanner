@@ -6,6 +6,9 @@ import { generateMarkdown, markdownToHtml } from '../utils/markdownGenerator'
 function ItineraryDisplay({ destination, selectedActivities, onBack, onReset }) {
   const [isSending, setIsSending] = useState(false)
   const [emailStatus, setEmailStatus] = useState(null) // 'success', 'error', 'error: message', or null
+  const [showEmailModal, setShowEmailModal] = useState(false)
+  const [emailInput, setEmailInput] = useState('')
+  const [emailError, setEmailError] = useState('')
   const itinerary = generateItinerary(destination, selectedActivities)
 
   if (!itinerary) {
@@ -275,13 +278,45 @@ function ItineraryDisplay({ destination, selectedActivities, onBack, onReset }) 
     }
   }
 
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return emailRegex.test(email)
+  }
+
+  const handleOpenEmailModal = () => {
+    setShowEmailModal(true)
+    setEmailInput('')
+    setEmailError('')
+    setEmailStatus(null)
+  }
+
+  const handleCloseEmailModal = () => {
+    setShowEmailModal(false)
+    setEmailInput('')
+    setEmailError('')
+  }
+
   const handleSendEmail = async () => {
+    // Validate email
+    if (!emailInput.trim()) {
+      setEmailError('Veuillez entrer une adresse email')
+      return
+    }
+
+    if (!validateEmail(emailInput.trim())) {
+      setEmailError('Veuillez entrer une adresse email valide')
+      return
+    }
+
+    setEmailError('')
     setIsSending(true)
     setEmailStatus(null)
     
     try {
-      const result = await sendItineraryEmail(itinerary)
+      const result = await sendItineraryEmail(itinerary, emailInput.trim())
       setEmailStatus('success')
+      setShowEmailModal(false)
+      setEmailInput('')
       console.log('Email sent successfully to:', result.recipients)
     } catch (error) {
       console.error('Error sending email:', error)
@@ -356,7 +391,7 @@ function ItineraryDisplay({ destination, selectedActivities, onBack, onReset }) 
               <h3>Vue d'Ensemble du Voyage</h3>
               <p>Voyage de 4 Jours • {itinerary.days.length} Jours d'Aventure</p>
               <p className="footer-note">
-                💝 Passez un merveilleux voyage d'anniversaire ! Cet itinéraire est un guide - n'hésitez pas à l'ajuster selon vos préférences.
+                🥔 Ceci est un itinéraire de base. On l'ajustera 🥔
               </p>
             </div>
           </div>
@@ -437,7 +472,7 @@ function ItineraryDisplay({ destination, selectedActivities, onBack, onReset }) 
           <div className="email-section">
             <button 
               className="send-email-button" 
-              onClick={handleSendEmail}
+              onClick={handleOpenEmailModal}
               disabled={isSending}
             >
               {isSending ? '📧 Envoi en cours...' : '📧 Envoyer l\'Itinéraire par Email'}
@@ -459,6 +494,63 @@ function ItineraryDisplay({ destination, selectedActivities, onBack, onReset }) 
             )}
           </div>
         </div>
+
+        {/* Email Input Modal */}
+        {showEmailModal && (
+          <div className="email-modal-overlay" onClick={handleCloseEmailModal}>
+            <div className="email-modal" onClick={(e) => e.stopPropagation()}>
+              <div className="email-modal-header">
+                <h3>📧 Envoyer l'Itinéraire par Email</h3>
+                <button className="email-modal-close" onClick={handleCloseEmailModal}>×</button>
+              </div>
+              <div className="email-modal-body">
+                <label htmlFor="email-input">
+                  Adresse email du destinataire :
+                </label>
+                <input
+                  id="email-input"
+                  type="email"
+                  className="email-input"
+                  placeholder="exemple@email.com"
+                  value={emailInput}
+                  onChange={(e) => {
+                    setEmailInput(e.target.value)
+                    setEmailError('')
+                  }}
+                  onKeyPress={(e) => {
+                    if (e.key === 'Enter') {
+                      handleSendEmail()
+                    }
+                  }}
+                  disabled={isSending}
+                  autoFocus
+                />
+                {emailError && (
+                  <p className="email-input-error">{emailError}</p>
+                )}
+                <p className="email-modal-note">
+                  L'email sera également envoyé en copie à l'adresse configurée.
+                </p>
+              </div>
+              <div className="email-modal-footer">
+                <button 
+                  className="email-modal-cancel" 
+                  onClick={handleCloseEmailModal}
+                  disabled={isSending}
+                >
+                  Annuler
+                </button>
+                <button 
+                  className="email-modal-send" 
+                  onClick={handleSendEmail}
+                  disabled={isSending || !emailInput.trim()}
+                >
+                  {isSending ? 'Envoi...' : 'Envoyer'}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )

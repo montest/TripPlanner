@@ -1,7 +1,7 @@
 /**
  * Colombo, Sri Lanka Destination
  * 
- * Themes: religious-sites, traditional-culture, museums-history
+ * Themes: traditional-culture, historic-cultural
  */
 
 export default {
@@ -9,7 +9,7 @@ export default {
   flightTime: "4 hours",
   coordinates: { lat: 6.9271, lng: 79.8612 },
   image: "https://images.unsplash.com/photo-1559827260-dbea01e5e788?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-  themes: ["religious-sites", "traditional-culture", "museums-history"],
+  themes: ["traditional-culture", "historic-cultural"],
   description: "Capitale vibrante avec architecture coloniale, temples et culture riche",
   activities: {
     "Culture & Musées": ["Temple Gangaramaya", "Musée National", "Architecture coloniale", "Temples bouddhistes"],
@@ -19,24 +19,60 @@ export default {
   },
   itinerary: {
     day1: {
-      morning: "Arrivée à l'aéroport de Colombo, enregistrement à l'hôtel, petit-déjeuner",
-      afternoon: "Visite du Temple Gangaramaya, exploration du Marché de Pettah, déjeuner",
-      evening: "Promenade d'architecture coloniale, dîner au restaurant gastronomique, Galle Face Green"
+      morning: {
+        text: "Arrivée à l'aéroport de Colombo, enregistrement à l'hôtel, petit-déjeuner",
+        image: ""
+      },
+      afternoon: {
+        text: "Visite du Temple Gangaramaya, exploration du Marché de Pettah, déjeuner",
+        image: ""
+      },
+      evening: {
+        text: "Promenade d'architecture coloniale, dîner au restaurant gastronomique, Galle Face Green",
+        image: ""
+      }
     },
     day2: {
-      morning: "Petit-déjeuner, visite du Musée National, exploration de la zone du Fort",
-      afternoon: "Déjeuner, visite de l'Independence Square, shopping à Odel ou Barefoot",
-      evening: "Dîner sri-lankais traditionnel, spectacle de danse culturelle"
+      morning: {
+        text: "Petit-déjeuner, visite du Musée National, exploration de la zone du Fort",
+        image: ""
+      },
+      afternoon: {
+        text: "Déjeuner, visite de l'Independence Square, shopping à Odel ou Barefoot",
+        image: ""
+      },
+      evening: {
+        text: "Dîner sri-lankais traditionnel, spectacle de danse culturelle",
+        image: ""
+      }
     },
     day3: {
-      morning: "Petit-déjeuner, excursion d'une journée à Kandy (Temple de la Dent, Jardins Botaniques Royaux)",
-      afternoon: "Déjeuner à Kandy, retour à Colombo, temps sur la plage",
-      evening: "Dîner de fruits de mer, vie nocturne à Colombo"
+      morning: {
+        text: "Petit-déjeuner, excursion d'une journée à Kandy (Temple de la Dent, Jardins Botaniques Royaux)",
+        image: ""
+      },
+      afternoon: {
+        text: "Déjeuner à Kandy, retour à Colombo, temps sur la plage",
+        image: ""
+      },
+      evening: {
+        text: "Dîner de fruits de mer, vie nocturne à Colombo",
+        image: ""
+      }
     },
     day4: {
-      morning: "Petit-déjeuner, shopping de dernière minute pour épices et artisanat",
-      afternoon: "Enregistrement de départ, visite de la plage ou dernière exploration de la ville, transfert vers l'aéroport",
-      evening: "Vol de retour vers Abu Dhabi"
+      morning: {
+        text: "Petit-déjeuner, shopping de dernière minute pour épices et artisanat",
+        image: ""
+      },
+      afternoon: {
+        text: "Enregistrement de départ, visite de la plage ou dernière exploration de la ville, transfert vers l'aéroport",
+        image: ""
+      },
+      evening: {
+        text: "Vol de retour vers Abu Dhabi",
+        image: "https://cdn.prod.website-files.com/65f8a2608247a99bd7aaba13/683ef923c63703391cf8d18e_Abu%20dhabi%20airport%20drop%20off.jpg"
+      }
     }
   }
 }

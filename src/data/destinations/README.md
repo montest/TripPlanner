@@ -42,7 +42,7 @@ export default {
 - `themes`: Must match themes defined for your chosen categories
   - **Beach themes**: `luxury-resorts`, `adventure-diving`, `romantic-getaway`, `island-hopping`
   - **City themes**: `historic-cultural`, `modern-shopping`, `food-nightlife`, `architecture-art`
-  - **Culture themes**: `ancient-wonders`, `religious-sites`, `traditional-culture`, `museums-history`
+  - **Culture themes**: `ancient-wonders`, `traditional-culture`, `historic-cultural`
 - `image`: Optional image URL (see Image Guidelines below)
 
 ### Step 3: Import in index.js
@@ -131,7 +131,7 @@ export default [
     planName: "Cultural & Historic",  // Optional: distinguishes this plan
     image: "https://example.com/istanbul-cultural.jpg",
     categories: ["city", "culture"],
-    themes: ["historic-cultural", "museums-history"],
+    themes: ["historic-cultural"],
     description: "Historic sites and cultural experiences",
     activities: { /* ... */ },
     itinerary: { /* ... */ }

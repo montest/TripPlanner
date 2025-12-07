@@ -852,6 +852,172 @@ body {
   font-style: italic;
 }
 
+/* Email Modal */
+.email-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.email-modal {
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: fadeInDown 0.3s ease-out;
+}
+
+.email-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  border-bottom: 2px solid var(--secondary-color);
+  background: linear-gradient(135deg, var(--accent-color), var(--primary-dark));
+  color: var(--white);
+  border-radius: 12px 12px 0 0;
+}
+
+.email-modal-header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.email-modal-close {
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.email-modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
+}
+
+.email-modal-body {
+  padding: 24px;
+}
+
+.email-modal-body label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 1rem;
+}
+
+.email-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--secondary-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: var(--transition);
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.email-input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(255, 107, 157, 0.1);
+}
+
+.email-input:disabled {
+  background: var(--background-light);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.email-input-error {
+  color: #dc3545;
+  font-size: 0.9rem;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.email-modal-note {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+.email-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 20px 24px;
+  border-top: 1px solid var(--secondary-color);
+  background: var(--background-light);
+  border-radius: 0 0 12px 12px;
+}
+
+.email-modal-cancel,
+.email-modal-send {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.email-modal-cancel {
+  background: var(--background-light);
+  color: var(--text-dark);
+  border: 2px solid var(--secondary-color);
+}
+
+.email-modal-cancel:hover:not(:disabled) {
+  background: var(--secondary-color);
+  color: var(--white);
+}
+
+.email-modal-send {
+  background: linear-gradient(135deg, var(--accent-color), var(--primary-dark));
+  color: var(--white);
+  box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+}
+
+.email-modal-send:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+}
+
+.email-modal-cancel:disabled,
+.email-modal-send:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
 /* Animations */
 @keyframes fadeIn {
   from {

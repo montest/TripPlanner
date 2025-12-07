@@ -49,7 +49,7 @@ export default {
   // Themes this destination matches (can be multiple)
   // Available themes: "luxury-resorts", "adventure-diving", "romantic-getaway", "island-hopping",
   // "historic-cultural", "modern-shopping", "food-nightlife", "architecture-art",
-  // "ancient-wonders", "religious-sites", "traditional-culture", "museums-history"
+  // "ancient-wonders", "traditional-culture", "historic-cultural"
   themes: ["luxury-resorts", "romantic-getaway"], // Example: multiple themes
   
   // Brief description of the destination

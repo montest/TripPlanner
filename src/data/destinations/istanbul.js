@@ -13,7 +13,7 @@ export default [
     flightTime: "3.5 hours",
     coordinates: { lat: 41.0082, lng: 28.9784 },
     image: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    themes: ["historic-cultural", "architecture-art", "museums-history"],
+    themes: ["historic-cultural", "architecture-art"],
     description: "Où l'Orient rencontre l'Occident - sites historiques, bazars animés et architecture époustouflante",
     activities: {
       "Culture & Musées": ["Sainte-Sophie", "Mosquée Bleue", "Palais de Topkapi", "Grand Bazar"],
@@ -23,24 +23,60 @@ export default [
     },
     itinerary: {
       day1: {
-      morning: "Arrivée à l'aéroport d'Istanbul, transfert à l'hôtel, enregistrement, petit-déjeuner",
-      afternoon: "Visite de Sainte-Sophie, Mosquée Bleue, déjeuner au restaurant traditionnel",
-      evening: "Exploration du Grand Bazar, dîner au restaurant sur le toit avec vue sur le Bosphore"
-    },
-    day2: {
-      morning: "Petit-déjeuner, visite du Palais de Topkapi, visite de la section Harem",
-      afternoon: "Déjeuner, croisière sur le Bosphore, visite du Bazar aux Épices",
-      evening: "Bain turc traditionnel (hammam), dîner au restaurant local, promenade nocturne"
-    },
-    day3: {
-      morning: "Petit-déjeuner, visite de la Tour de Galata, exploration des quartiers de Galata et Karaköy",
-      afternoon: "Déjeuner, visite du Palais de Dolmabahçe, promenade le long du Bosphore",
-      evening: "Croisière-dîner sur le Bosphore, spectacle culturel turc, vie nocturne à Beyoğlu"
-    },
-    day4: {
-      morning: "Petit-déjeuner, shopping de dernière minute au Grand Bazar ou Bazar aux Épices",
-      afternoon: "Enregistrement de départ, visite de la Citerne Basilique, transfert vers l'aéroport",
-      evening: "Vol de retour vers Abu Dhabi"
+        morning: {
+          text: "Arrivée à l'aéroport d'Istanbul, transfert à l'hôtel, enregistrement, petit-déjeuner",
+          image: ""
+        },
+        afternoon: {
+          text: "Visite de Sainte-Sophie, Mosquée Bleue, déjeuner au restaurant traditionnel",
+          image: ""
+        },
+        evening: {
+          text: "Exploration du Grand Bazar, dîner au restaurant sur le toit avec vue sur le Bosphore",
+          image: ""
+        }
+      },
+      day2: {
+        morning: {
+          text: "Petit-déjeuner, visite du Palais de Topkapi, visite de la section Harem",
+          image: ""
+        },
+        afternoon: {
+          text: "Déjeuner, croisière sur le Bosphore, visite du Bazar aux Épices",
+          image: ""
+        },
+        evening: {
+          text: "Bain turc traditionnel (hammam), dîner au restaurant local, promenade nocturne",
+          image: ""
+        }
+      },
+      day3: {
+        morning: {
+          text: "Petit-déjeuner, visite de la Tour de Galata, exploration des quartiers de Galata et Karaköy",
+          image: ""
+        },
+        afternoon: {
+          text: "Déjeuner, visite du Palais de Dolmabahçe, promenade le long du Bosphore",
+          image: ""
+        },
+        evening: {
+          text: "Croisière-dîner sur le Bosphore, spectacle culturel turc, vie nocturne à Beyoğlu",
+          image: ""
+        }
+      },
+      day4: {
+        morning: {
+          text: "Petit-déjeuner, shopping de dernière minute au Grand Bazar ou Bazar aux Épices",
+          image: ""
+        },
+        afternoon: {
+          text: "Enregistrement de départ, visite de la Citerne Basilique, transfert vers l'aéroport",
+          image: ""
+        },
+        evening: {
+          text: "Vol de retour vers Abu Dhabi",
+          image: "https://cdn.prod.website-files.com/65f8a2608247a99bd7aaba13/683ef923c63703391cf8d18e_Abu%20dhabi%20airport%20drop%20off.jpg"
+        }
       }
     }
   },
@@ -58,10 +94,26 @@ export default [
       "Vie Nocturne & Divertissement": ["Boîtes de nuit", "Bars sur les toits", "Lieux de musique live"]
     },
     itinerary: {
-      day1: { morning: "...", afternoon: "...", evening: "..." },
-      day2: { morning: "...", afternoon: "...", evening: "..." },
-      day3: { morning: "...", afternoon: "...", evening: "..." },
-      day4: { morning: "...", afternoon: "...", evening: "..." }
+      day1: {
+        morning: { text: "...", image: "" },
+        afternoon: { text: "...", image: "" },
+        evening: { text: "...", image: "" }
+      },
+      day2: {
+        morning: { text: "...", image: "" },
+        afternoon: { text: "...", image: "" },
+        evening: { text: "...", image: "" }
+      },
+      day3: {
+        morning: { text: "...", image: "" },
+        afternoon: { text: "...", image: "" },
+        evening: { text: "...", image: "" }
+      },
+      day4: {
+        morning: { text: "...", image: "" },
+        afternoon: { text: "...", image: "" },
+        evening: { text: "...", image: "" }
+      }
     }
   }
 ]

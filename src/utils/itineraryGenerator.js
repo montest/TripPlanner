@@ -70,12 +70,3 @@ export function generateItinerary(destination, selectedActivities) {
   return formattedItinerary
 }
 
-/**
- * Gets all available activities for a destination
- * @param {Object} destination - The destination object
- * @returns {Object} All activities organized by category
- */
-export function getAllActivities(destination) {
-  return destination?.activities || {}
-}
-

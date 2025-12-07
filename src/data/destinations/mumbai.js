@@ -19,24 +19,60 @@ export default {
   },
   itinerary: {
     day1: {
-      morning: "Arrivée à l'aéroport de Mumbai, enregistrement à l'hôtel, petit-déjeuner",
-      afternoon: "Visite de la Porte de l'Inde, exploration de Colaba, déjeuner au restaurant célèbre",
-      evening: "Coucher du soleil à Marine Drive, dîner au restaurant gastronomique, promenade nocturne"
+      morning: {
+        text: "Arrivée à l'aéroport de Mumbai, enregistrement à l'hôtel, petit-déjeuner",
+        image: ""
+      },
+      afternoon: {
+        text: "Visite de la Porte de l'Inde, exploration de Colaba, déjeuner au restaurant célèbre",
+        image: ""
+      },
+      evening: {
+        text: "Coucher du soleil à Marine Drive, dîner au restaurant gastronomique, promenade nocturne",
+        image: ""
+      }
     },
     day2: {
-      morning: "Petit-déjeuner, ferry vers les Grottes d'Elephanta (site UNESCO), exploration des temples troglodytes",
-      afternoon: "Retour en ville, déjeuner, visite de la Gare Chhatrapati Shivaji (bâtiment patrimonial)",
-      evening: "Tour de cuisine de rue à Colaba, visite d'une galerie d'art, dîner"
+      morning: {
+        text: "Petit-déjeuner, ferry vers les Grottes d'Elephanta (site UNESCO), exploration des temples troglodytes",
+        image: ""
+      },
+      afternoon: {
+        text: "Retour en ville, déjeuner, visite de la Gare Chhatrapati Shivaji (bâtiment patrimonial)",
+        image: ""
+      },
+      evening: {
+        text: "Tour de cuisine de rue à Colaba, visite d'une galerie d'art, dîner",
+        image: ""
+      }
     },
     day3: {
-      morning: "Petit-déjeuner, tour des studios de Bollywood (si disponible), visite du quartier de Bandra",
-      afternoon: "Déjeuner, shopping à Colaba Causeway ou dans les centres commerciaux haut de gamme",
-      evening: "Coucher du soleil au Bandra-Worli Sea Link, dîner au restaurant sur le toit, vie nocturne à Bandra"
+      morning: {
+        text: "Petit-déjeuner, tour des studios de Bollywood (si disponible), visite du quartier de Bandra",
+        image: ""
+      },
+      afternoon: {
+        text: "Déjeuner, shopping à Colaba Causeway ou dans les centres commerciaux haut de gamme",
+        image: ""
+      },
+      evening: {
+        text: "Coucher du soleil au Bandra-Worli Sea Link, dîner au restaurant sur le toit, vie nocturne à Bandra",
+        image: ""
+      }
     },
     day4: {
-      morning: "Petit-déjeuner, shopping de dernière minute à Chor Bazaar ou aux marchés locaux",
-      afternoon: "Enregistrement de départ, visite du Haji Ali Dargah ou du Parc National Sanjay Gandhi, transfert vers l'aéroport",
-      evening: "Vol de retour vers Abu Dhabi"
+      morning: {
+        text: "Petit-déjeuner, shopping de dernière minute à Chor Bazaar ou aux marchés locaux",
+        image: ""
+      },
+      afternoon: {
+        text: "Enregistrement de départ, visite du Haji Ali Dargah ou du Parc National Sanjay Gandhi, transfert vers l'aéroport",
+        image: ""
+      },
+      evening: {
+        text: "Vol de retour vers Abu Dhabi",
+        image: "https://cdn.prod.website-files.com/65f8a2608247a99bd7aaba13/683ef923c63703391cf8d18e_Abu%20dhabi%20airport%20drop%20off.jpg"
+      }
     }
   }
 }

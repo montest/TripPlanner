@@ -8,7 +8,7 @@ export default {
   name: "Baku, Azerbaijan",
   flightTime: "3 hours",
   coordinates: { lat: 40.4093, lng: 49.8671 },
-  image: "https://images.unsplash.com/photo-1605540436563-5bca919ae766?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+  image: "https://images.travelandleisureasia.com/wp-content/uploads/sites/3/2024/07/24185058/baku-city-1.jpeg?tr=w-1200,q-60",
   themes: ["historic-cultural", "architecture-art", "modern-shopping"],
   description: "Capitale azerbaïdjanaise où l'ancien rencontre le moderne - Vieille Ville UNESCO et architecture futuriste",
   activities: {
@@ -19,24 +19,60 @@ export default {
   },
   itinerary: {
     day1: {
-      morning: "Arrivée à l'aéroport de Bakou, enregistrement à l'hôtel, petit-déjeuner",
-      afternoon: "Visite de la Vieille Ville (Icherisheher - site UNESCO), exploration des rues historiques, déjeuner",
-      evening: "Promenade sur le Boulevard de la Caspienne, dîner azerbaïdjanais traditionnel, observation des Flame Towers"
+      morning: {
+        text: "Arrivée à l'aéroport de Bakou, enregistrement à l'hôtel, petit-déjeuner",
+        image: ""
+      },
+      afternoon: {
+        text: "Visite de la Vieille Ville (Icherisheher - site UNESCO), exploration des rues historiques, déjeuner",
+        image: ""
+      },
+      evening: {
+        text: "Promenade sur le Boulevard de la Caspienne, dîner azerbaïdjanais traditionnel, observation des Flame Towers",
+        image: ""
+      }
     },
     day2: {
-      morning: "Petit-déjeuner, visite du Palais des Shirvanshahs, Tour de la Vierge",
-      afternoon: "Déjeuner, visite du Centre Heydar Aliyev (architecture moderne), exploration de l'art contemporain",
-      evening: "Dîner au restaurant avec vue sur les Flame Towers, promenade nocturne, café local"
+      morning: {
+        text: "Petit-déjeuner, visite du Palais des Shirvanshahs, Tour de la Vierge",
+        image: ""
+      },
+      afternoon: {
+        text: "Déjeuner, visite du Centre Heydar Aliyev (architecture moderne), exploration de l'art contemporain",
+        image: ""
+      },
+      evening: {
+        text: "Dîner au restaurant avec vue sur les Flame Towers, promenade nocturne, café local",
+        image: ""
+      }
     },
     day3: {
-      morning: "Petit-déjeuner, visite du Musée d'Art Moderne, exploration de l'architecture moderne de Bakou",
-      afternoon: "Déjeuner, shopping sur Nizami Street, visite des marchés locaux",
-      evening: "Dîner gastronomique, observation des Flame Towers illuminées, expérience culturelle"
+      morning: {
+        text: "Petit-déjeuner, visite du Musée d'Art Moderne, exploration de l'architecture moderne de Bakou",
+        image: ""
+      },
+      afternoon: {
+        text: "Déjeuner, shopping sur Nizami Street, visite des marchés locaux",
+        image: ""
+      },
+      evening: {
+        text: "Dîner gastronomique, observation des Flame Towers illuminées, expérience culturelle",
+        image: ""
+      }
     },
     day4: {
-      morning: "Petit-déjeuner, dernière visite ou shopping de souvenirs",
-      afternoon: "Enregistrement de départ, transfert vers l'aéroport",
-      evening: "Vol de retour vers Abu Dhabi"
+      morning: {
+        text: "Petit-déjeuner, dernière visite ou shopping de souvenirs",
+        image: ""
+      },
+      afternoon: {
+        text: "Enregistrement de départ, transfert vers l'aéroport",
+        image: ""
+      },
+      evening: {
+        text: "Vol de retour vers Abu Dhabi",
+        image: "https://cdn.prod.website-files.com/65f8a2608247a99bd7aaba13/683ef923c63703391cf8d18e_Abu%20dhabi%20airport%20drop%20off.jpg"
+      }
     }
   }
 }

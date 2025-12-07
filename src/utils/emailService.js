@@ -62,7 +62,7 @@ export function formatItineraryAsEmail(itinerary) {
     `
   })
   
-  html += `<p style="margin-top: 20px; font-size: 16px; color: #ff6b9d;">💝 Passez un merveilleux voyage d'anniversaire !</p>`
+  html += `<p style="margin-top: 20px; font-size: 16px; color: #ff6b9d;">💝 Passe un merveilleux voyage d'anniversaire !</p>`
   
   return html
 }
@@ -98,15 +98,18 @@ export function formatItineraryAsText(itinerary) {
     text += `  🌙 Soirée : ${eveningText}\n\n`
   })
   
-  text += `💝 Passez un merveilleux voyage d'anniversaire !\n`
+  text += `💝 Passe un merveilleux voyage d'anniversaire !\n`
   
   return text
 }
 
 /**
  * Sends itinerary via email using EmailJS
+ * @param {Object} itinerary - The itinerary object to send
+ * @param {String} primaryRecipient - The primary email recipient (user-entered)
+ * @returns {Object} Result with success status and recipients
  */
-export async function sendItineraryEmail(itinerary) {
+export async function sendItineraryEmail(itinerary, primaryRecipient) {
   // Check if EmailJS is configured
   if (emailjsConfig.publicKey === 'YOUR_PUBLIC_KEY' || 
       emailjsConfig.serviceId === 'YOUR_SERVICE_ID' || 
@@ -114,9 +117,14 @@ export async function sendItineraryEmail(itinerary) {
     throw new Error('EmailJS is not configured. Please set up your EmailJS credentials in src/config/emailConfig.js. See EMAILJS_SETUP.md for instructions.')
   }
 
-  // Check if there are recipients
+  // Validate primary recipient
+  if (!primaryRecipient || !primaryRecipient.trim()) {
+    throw new Error('Primary recipient email is required')
+  }
+
+  // Check if there are CC recipients
   if (!emailRecipients || emailRecipients.length === 0) {
-    throw new Error('No email recipients configured. Please add email addresses to emailRecipients in src/config/emailConfig.js')
+    throw new Error('No CC email recipients configured. Please add email addresses to emailRecipients in src/config/emailConfig.js')
   }
 
   try {
@@ -127,12 +135,34 @@ export async function sendItineraryEmail(itinerary) {
     const emailHtml = formatItineraryAsEmail(itinerary)
     const emailText = formatItineraryAsText(itinerary)
 
-    // Send email to each recipient
-    const emailPromises = emailRecipients.map(recipientEmail => {
-      const templateParams = {
-        to_email: recipientEmail,
-        to_name: recipientEmail.split('@')[0], // Use email username as name
-        subject: `🎂 Itinéraire de Voyage d'Anniversaire : ${itinerary.destination}`,
+    // Combine CC recipients into a comma-separated string
+    const ccEmails = emailRecipients.join(', ')
+
+    // Send email to primary recipient with CC
+    const templateParams = {
+      to_email: primaryRecipient.trim(),
+      to_name: primaryRecipient.trim().split('@')[0], // Use email username as name
+      cc_email: ccEmails, // CC addresses (comma-separated)
+      subject: `🎂 Itinéraire de Voyage d'Anniversaire : ${itinerary.destination}`,
+      message_html: emailHtml,
+      message_text: emailText,
+      destination: itinerary.destination,
+      flight_time: itinerary.flightTime,
+    }
+
+    await emailjs.send(
+      emailjsConfig.serviceId,
+      emailjsConfig.templateId,
+      templateParams
+    )
+
+    // Also send copies to CC recipients (some email services require separate emails for CC)
+    // This ensures all recipients receive the email even if CC is not supported
+    const ccPromises = emailRecipients.map(ccEmail => {
+      const ccTemplateParams = {
+        to_email: ccEmail,
+        to_name: ccEmail.split('@')[0],
+        subject: `🎂 Itinéraire de Voyage d'Anniversaire : ${itinerary.destination} (Copie)`,
         message_html: emailHtml,
         message_text: emailText,
         destination: itinerary.destination,
@@ -142,14 +172,15 @@ export async function sendItineraryEmail(itinerary) {
       return emailjs.send(
         emailjsConfig.serviceId,
         emailjsConfig.templateId,
-        templateParams
+        ccTemplateParams
       )
     })
 
-    // Wait for all emails to be sent
-    await Promise.all(emailPromises)
+    // Wait for all CC emails to be sent
+    await Promise.all(ccPromises)
     
-    return { success: true, recipients: emailRecipients }
+    const allRecipients = [primaryRecipient.trim(), ...emailRecipients]
+    return { success: true, recipients: allRecipients }
   } catch (error) {
     // Provide more detailed error information
     let errorMessage = 'Failed to send email. '

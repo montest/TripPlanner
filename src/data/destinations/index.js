@@ -8,6 +8,7 @@
  */
 
 // Import all destinations
+// import beirut from './beirut.js'
 import maldives from './maldives.js'
 import seychelles from './seychelles.js'
 import goa from './goa.js'
@@ -20,7 +21,6 @@ import colombo from './colombo.js'
 import doha from './doha.js'
 import riyadh from './riyadh.js'
 import amman from './amman.js'
-import beirut from './beirut.js'
 import baku from './baku.js'
 
 // Helper function to normalize destinations (handle both single plans and arrays of plans)
@@ -47,7 +47,7 @@ const allDestinationsRaw = [
   doha,
   riyadh,
   amman,
-  beirut,
+  // beirut,
   baku
 ]
 
@@ -65,9 +65,7 @@ const themeDefinitions = {
   "food-nightlife": { id: "food-nightlife", name: "Gastronomie & Vie Nocturne", icon: "🍽️" },
   "architecture-art": { id: "architecture-art", name: "Architecture & Art", icon: "🎨" },
   "ancient-wonders": { id: "ancient-wonders", name: "Merveilles Antiques", icon: "🔺" },
-  "religious-sites": { id: "religious-sites", name: "Sites Religieux", icon: "🕌" },
-  "traditional-culture": { id: "traditional-culture", name: "Culture Traditionnelle", icon: "🎭" },
-  "museums-history": { id: "museums-history", name: "Musées & Histoire", icon: "📜" }
+  "traditional-culture": { id: "traditional-culture", name: "Culture Traditionnelle", icon: "🎭" }
 }
 
 // Extract all unique themes from all destinations and create theme array

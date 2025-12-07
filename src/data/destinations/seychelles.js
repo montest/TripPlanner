@@ -18,24 +18,60 @@ export default {
   },
   itinerary: {
     day1: {
-      morning: "Arrivée à l'aéroport de Mahé, transfert vers le resort, enregistrement",
-      afternoon: "Boisson de bienvenue, exploration de la plage, déjeuner au resort",
-      evening: "Observation du coucher du soleil à la plage de Beau Vallon, dîner au restaurant de plage"
+      morning: {
+        text: "Arrivée à l'aéroport de Mahé, transfert vers le resort, enregistrement",
+        image: ""
+      },
+      afternoon: {
+        text: "Boisson de bienvenue, exploration de la plage, déjeuner au resort",
+        image: ""
+      },
+      evening: {
+        text: "Observation du coucher du soleil à la plage de Beau Vallon, dîner au restaurant de plage",
+        image: ""
+      }
     },
     day2: {
-      morning: "Petit-déjeuner, visite d'Anse Lazio (l'une des meilleures plages au monde), snorkeling",
-      afternoon: "Déjeuner, promenade nature dans la Vallée de Mai (site UNESCO), dégustation de noix de coco",
-      evening: "Retour au resort, séance spa, dîner romantique"
+      morning: {
+        text: "Petit-déjeuner, visite d'Anse Lazio (l'une des meilleures plages au monde), snorkeling",
+        image: ""
+      },
+      afternoon: {
+        text: "Déjeuner, promenade nature dans la Vallée de Mai (site UNESCO), dégustation de noix de coco",
+        image: ""
+      },
+      evening: {
+        text: "Retour au resort, séance spa, dîner romantique",
+        image: ""
+      }
     },
     day3: {
-      morning: "Petit-déjeuner tôt, tour de saut d'île en île vers Praslin et La Digue",
-      afternoon: "Déjeuner sur La Digue, visite de la plage d'Anse Source d'Argent, séance photo",
-      evening: "Retour au resort, croisière au coucher du soleil, dîner créole"
+      morning: {
+        text: "Petit-déjeuner tôt, tour de saut d'île en île vers Praslin et La Digue",
+        image: ""
+      },
+      afternoon: {
+        text: "Déjeuner sur La Digue, visite de la plage d'Anse Source d'Argent, séance photo",
+        image: ""
+      },
+      evening: {
+        text: "Retour au resort, croisière au coucher du soleil, dîner créole",
+        image: ""
+      }
     },
     day4: {
-      morning: "Dernier moment sur la plage, petit-déjeuner, shopping de souvenirs aux marchés locaux",
-      afternoon: "Enregistrement de départ, transfert vers l'aéroport",
-      evening: "Vol de retour vers Abu Dhabi"
+      morning: {
+        text: "Dernier moment sur la plage, petit-déjeuner, shopping de souvenirs aux marchés locaux",
+        image: ""
+      },
+      afternoon: {
+        text: "Enregistrement de départ, transfert vers l'aéroport",
+        image: ""
+      },
+      evening: {
+        text: "Vol de retour vers Abu Dhabi",
+        image: "https://cdn.prod.website-files.com/65f8a2608247a99bd7aaba13/683ef923c63703391cf8d18e_Abu%20dhabi%20airport%20drop%20off.jpg"
+      }
     }
   }
 }

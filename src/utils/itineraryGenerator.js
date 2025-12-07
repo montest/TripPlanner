@@ -38,6 +38,8 @@ export function generateItinerary(destination, selectedActivities) {
     image: destination.image, // Include image if it exists
     flightTime: destination.flightTime,
     description: destination.description,
+    themes: destination.themes || [], // Include themes
+    allActivities: destination.activities || {}, // Include all activities
     matchingActivities: matchingActivities,
     days: [
       {

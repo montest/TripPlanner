@@ -1,7 +1,7 @@
 /**
  * Cairo, Egypt Destination
  * 
- * Themes: ancient-wonders, historic-cultural
+ * Themes: merveilles-antiques, historique-culturel
  */
 
 export default {
@@ -9,7 +9,7 @@ export default {
   flightTime: "3.5 hours",
   coordinates: { lat: 30.0444, lng: 31.2357 },
   image: "https://media.istockphoto.com/id/1174818077/fr/photo/mosqu%C3%A9e-et-pyramides.jpg?s=612x612&w=0&k=20&c=MfyKKflT998ej0yPqBQ37_98-rZKUQ8nxWJ9heX8Bfk=",
-  themes: ["ancient-wonders", "historic-cultural"],
+  themes: ["merveilles-antiques", "historique-culturel"],
   description: "Merveilles antiques, pyramides et riche histoire égyptienne",
   activities: {
     "Culture & Musées": ["Pyramides de Gizeh", "Musée Égyptien", "Khan el-Khalili", "Le Caire Islamique"],

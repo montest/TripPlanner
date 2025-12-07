@@ -1,7 +1,7 @@
 /**
  * Petra, Jordan Destination
  * 
- * Themes: ancient-wonders, traditional-culture
+ * Themes: merveilles-antiques, historique-culturel
  */
 
 export default {
@@ -9,7 +9,7 @@ export default {
   flightTime: "2.5 hours (to Amman)",
   coordinates: { lat: 30.3285, lng: 35.4444 },
   image: "https://res.cloudinary.com/ddjuftfy2/image/upload/f_webp,c_fill,q_100,w_500/memphis/xlarge/184203755_Petra.jpg",
-  themes: ["historic-cultural", "ancient-wonders", "traditional-culture"],
+  themes: ["historique-culturel", "merveilles-antiques"],
   description: "Ancienne ville nabatéenne sculptée dans des falaises rose-rouge, l'une des 7 Nouvelles Merveilles",
   activities: {
     "Culture & Musées": ["Site archéologique de Pétra", "Musée de Pétra", "Petite Pétra", "Culture bédouine"],

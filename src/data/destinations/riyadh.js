@@ -1,7 +1,7 @@
 /**
  * Riyadh, Saudi Arabia Destination
  * 
- * Themes: historic-cultural, modern-shopping, architecture-art
+ * Themes: historique-culturel, moderne-shopping
  */
 
 export default {
@@ -9,7 +9,7 @@ export default {
   flightTime: "1.5 hours",
   coordinates: { lat: 24.7136, lng: 46.6753 },
   image: "https://images.unsplash.com/photo-1605540436563-5bca919ae766?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-  themes: ["historic-cultural", "modern-shopping", "architecture-art"],
+  themes: ["historique-culturel", "moderne-shopping"],
   description: "Capitale moderne avec patrimoine historique, architecture contemporaine et culture saoudienne authentique",
   activities: {
     "Culture & Musées": ["Fort de Masmak", "Musée National d'Arabie Saoudite", "Diriyah (At-Turaif)", "Palais Murabba"],

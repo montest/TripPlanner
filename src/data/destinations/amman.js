@@ -1,7 +1,7 @@
 /**
  * Amman, Jordan Destination
  * 
- * Themes: historic-cultural, ancient-wonders
+ * Themes: historique-culturel, merveilles-antiques
  */
 
 export default {
@@ -9,7 +9,7 @@ export default {
   flightTime: "3 hours",
   coordinates: { lat: 31.9539, lng: 35.9106 },
   image: "https://i0.wp.com/www.touristjordan.com/wp-content/uploads/2022/08/jordan12.jpg?resize=800%2C533&ssl=1",
-  themes: ["historic-cultural", "ancient-wonders"],
+  themes: ["historique-culturel", "merveilles-antiques"],
   description: "Capitale jordanienne avec citadelle antique, théâtre romain, rainbow street et culture arabe moderne",
   activities: {
     "Culture & Musées": ["Citadelle d'Amman", "Théâtre Romain", "Musée Archéologique", "Musée du Folklore"],

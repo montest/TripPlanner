@@ -4,7 +4,7 @@
  * This file automatically imports all destinations and provides access to all themes.
  * 
  * Theme Definitions:
- * - Themes are refined topics for destinations (luxury-resorts, historic-cultural, etc.)
+ * - Themes are refined topics for destinations (historique-culturel, repos-en-bord-de-plage, etc.)
  */
 
 // Import all destinations
@@ -56,16 +56,12 @@ const allDestinations = allDestinationsRaw.flatMap(normalizeDestinations)
 
 // Theme definitions - all available themes
 const themeDefinitions = {
-  "luxury-resorts": { id: "luxury-resorts", name: "Résidences de Luxe", icon: "🏝️" },
-  "adventure-diving": { id: "adventure-diving", name: "Aventure & Plongée", icon: "🤿" },
-  "romantic-getaway": { id: "romantic-getaway", name: "Évasion Romantique", icon: "💕" },
-  "island-hopping": { id: "island-hopping", name: "Saut d'Île en Île", icon: "⛵" },
-  "historic-cultural": { id: "historic-cultural", name: "Historique & Culturel", icon: "🏛️" },
-  "modern-shopping": { id: "modern-shopping", name: "Moderne & Shopping", icon: "🛍️" },
-  "food-nightlife": { id: "food-nightlife", name: "Gastronomie & Vie Nocturne", icon: "🍽️" },
-  "architecture-art": { id: "architecture-art", name: "Architecture & Art", icon: "🎨" },
-  "ancient-wonders": { id: "ancient-wonders", name: "Merveilles Antiques", icon: "🔺" },
-  "traditional-culture": { id: "traditional-culture", name: "Culture Traditionnelle", icon: "🎭" }
+  "repos-en-bord-de-plage": { id: "repos-en-bord-de-plage", name: "Repos en bord de plage", icon: "🤿" },
+  "chiller-sur-une-ile": { id: "chiller-sur-une-ile", name: "Chiller sur une Île", icon: "⛵" },
+  "historique-culturel": { id: "historique-culturel", name: "Historique & Culturel", icon: "🏛️" },
+  "moderne-shopping": { id: "moderne-shopping", name: "Moderne & Shopping", icon: "🛍️" },
+  "gastronomie-vie-nocturne": { id: "gastronomie-vie-nocturne", name: "Gastronomie & Vie Nocturne", icon: "🍽️" },
+  "merveilles-antiques": { id: "merveilles-antiques", name: "Merveilles Antiques", icon: "🔺" }
 }
 
 // Extract all unique themes from all destinations and create theme array
@@ -90,6 +86,9 @@ function getAllThemes() {
 
 // Export all themes
 export const allThemes = getAllThemes()
+
+// Export theme definitions
+export { themeDefinitions }
 
 // Export all destinations
 export { allDestinations }

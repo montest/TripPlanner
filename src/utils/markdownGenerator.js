@@ -3,6 +3,8 @@
  * This is used for clean printing
  */
 
+import { themeDefinitions } from '../data/destinations/index.js'
+
 export function generateMarkdown(itinerary) {
   if (!itinerary) return ''
 
@@ -19,8 +21,36 @@ export function generateMarkdown(itinerary) {
   }
   
   md += `**Temps de vol :** ${itinerary.flightTime} depuis Abu Dhabi\n\n`
+  
+  // Description
+  md += `## Description\n\n`
   md += `${itinerary.description}\n\n`
   
+  // Themes
+  if (itinerary.themes && itinerary.themes.length > 0) {
+    md += `## Thèmes\n\n`
+    itinerary.themes.forEach((themeId) => {
+      const theme = themeDefinitions[themeId]
+      if (theme) {
+        md += `- ${theme.icon} ${theme.name}\n`
+      }
+    })
+    md += `\n`
+  }
+  
+  // All Activities
+  if (itinerary.allActivities && Object.keys(itinerary.allActivities).length > 0) {
+    md += `## Activités Disponibles\n\n`
+    Object.entries(itinerary.allActivities).forEach(([category, activities]) => {
+      md += `### ${category}\n\n`
+      activities.forEach(activity => {
+        md += `- ${activity}\n`
+      })
+      md += `\n`
+    })
+  }
+  
+  // Selected Activities (if different from all activities)
   if (itinerary.matchingActivities && Object.keys(itinerary.matchingActivities).length > 0) {
     md += `## Activités Sélectionnées\n\n`
     Object.entries(itinerary.matchingActivities).forEach(([category, activities]) => {

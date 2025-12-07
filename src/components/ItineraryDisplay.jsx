@@ -3,6 +3,7 @@ import { generateItinerary } from '../utils/itineraryGenerator'
 import { sendItineraryEmail } from '../utils/emailService'
 import { generateMarkdown, markdownToHtml } from '../utils/markdownGenerator'
 import { emailRecipients } from '../config/emailConfig'
+import { themeDefinitions } from '../data/destinations/index.js'
 
 function ItineraryDisplay({ destination, selectedActivities, onBack, onReset }) {
   const [isSending, setIsSending] = useState(false)
@@ -379,6 +380,43 @@ function ItineraryDisplay({ destination, selectedActivities, onBack, onReset }) 
               <p className="destination-description">{itinerary.description}</p>
             </div>
 
+            {/* Themes Section */}
+            {itinerary.themes && itinerary.themes.length > 0 && (
+              <div className="title-page-themes">
+                <h3>Thèmes</h3>
+                <div className="themes-list">
+                  {itinerary.themes.map((themeId, idx) => {
+                    const theme = themeDefinitions[themeId]
+                    return theme ? (
+                      <span key={idx} className="theme-badge">
+                        {theme.icon} {theme.name}
+                      </span>
+                    ) : null
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* All Activities Section */}
+            {itinerary.allActivities && Object.keys(itinerary.allActivities).length > 0 && (
+              <div className="title-page-activities">
+                <h3>Activités Disponibles</h3>
+                <div className="activities-summary">
+                  {Object.entries(itinerary.allActivities).map(([category, activities]) => (
+                    <div key={category} className="activity-category">
+                      <strong>{category}:</strong>
+                      <div className="activity-list">
+                        {activities.map((activity, idx) => (
+                          <span key={idx} className="activity-item">{activity}</span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Selected Activities Section (if different from all activities) */}
             {Object.keys(itinerary.matchingActivities).length > 0 && (
               <div className="title-page-activities">
                 <h3>Activités Sélectionnées</h3>

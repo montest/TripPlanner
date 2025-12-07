@@ -1,7 +1,7 @@
 /**
  * Baku, Azerbaijan Destination
  * 
- * Themes: historic-cultural, architecture-art, modern-shopping
+ * Themes: historique-culturel, moderne-shopping
  */
 
 export default {
@@ -9,7 +9,7 @@ export default {
   flightTime: "3 hours",
   coordinates: { lat: 40.4093, lng: 49.8671 },
   image: "https://images.travelandleisureasia.com/wp-content/uploads/sites/3/2024/07/24185058/baku-city-1.jpeg?tr=w-1200,q-60",
-  themes: ["historic-cultural", "architecture-art", "modern-shopping"],
+  themes: ["historique-culturel", "moderne-shopping"],
   description: "Capitale azerbaïdjanaise où l'ancien rencontre le moderne - Vieille Ville UNESCO et architecture futuriste",
   activities: {
     "Culture & Musées": ["Vieille Ville (Icherisheher)", "Palais des Shirvanshahs", "Tour de la Vierge", "Musée d'Art Moderne"],

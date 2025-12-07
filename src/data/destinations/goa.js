@@ -1,7 +1,7 @@
 /**
  * Goa, India Destination
  * 
- * Themes: adventure-diving, romantic-getaway
+ * Themes: repos-en-bord-de-plage
  */
 
 export default {
@@ -9,7 +9,7 @@ export default {
   flightTime: "6 hours (no direct flight)",
   coordinates: { lat: 15.2993, lng: 74.1240 },
   image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-  themes: ["adventure-diving", "romantic-getaway"],
+  themes: ["repos-en-bord-de-plage"],
   description: "Plages tropicales, patrimoine portugais et culture vibrante",
   activities: {
     "Détente & Spa": ["Farniente sur la plage", "Spa ayurvédique", "Yoga sur la plage", "Observation du coucher du soleil"],

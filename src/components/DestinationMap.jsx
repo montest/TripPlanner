@@ -24,6 +24,21 @@ const redIcon = new L.Icon({
   shadowSize: [41, 41]
 })
 
+// Create a green icon for destinations in cart
+let greenIcon = null
+try {
+  greenIcon = new L.Icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+  })
+} catch (error) {
+  console.warn('Failed to create green icon:', error)
+}
+
 // Function to generate arc points between two coordinates
 // Creates a smooth curved arc that represents a flight route
 function generateArcPoints(start, end, numPoints = 50) {
@@ -98,15 +113,17 @@ function ScrollWheelZoomHandler() {
       const isModifierPressed = e.metaKey || e.ctrlKey
       
       if (!isModifierPressed) {
-        // Prevent default scroll zoom behavior
-        e.preventDefault()
-        // Allow normal page scrolling
-        return false
+        // Don't prevent default - allow normal page scrolling
+        // Just stop the event from propagating to prevent map zoom
+        e.stopPropagation()
+        return
       }
       
-      // If modifier is pressed, allow zoom
-      // Leaflet will handle the zoom automatically if scrollWheelZoom is enabled
-      // But we need to manually handle it since we disabled scrollWheelZoom
+      // If modifier is pressed, handle zoom
+      // Prevent default to stop page scrolling
+      e.preventDefault()
+      e.stopPropagation()
+      
       const delta = e.deltaY
       const zoom = map.getZoom()
       
@@ -117,9 +134,6 @@ function ScrollWheelZoomHandler() {
         // Scroll down - zoom out
         map.setZoom(zoom - 1)
       }
-      
-      e.preventDefault()
-      return false
     }
 
     mapContainer.addEventListener('wheel', handleWheel, { passive: false })
@@ -132,7 +146,10 @@ function ScrollWheelZoomHandler() {
   return null
 }
 
-function DestinationMap({ destinations, center = ABU_DHABI_COORDS, zoom = 3 }) {
+function DestinationMap({ destinations, cart = [], center = ABU_DHABI_COORDS, zoom = 3 }) {
+  // Ensure cart is an array
+  const cartArray = Array.isArray(cart) ? cart : []
+  
   // Filter destinations that have coordinates and sort alphabetically
   const destinationsWithCoords = destinations
     .filter(dest => dest.coordinates && dest.coordinates.lat && dest.coordinates.lng)
@@ -141,6 +158,12 @@ function DestinationMap({ destinations, center = ABU_DHABI_COORDS, zoom = 3 }) {
       const nameB = b.name || ''
       return nameA.localeCompare(nameB, 'fr', { sensitivity: 'base' })
     })
+
+  // Helper function to check if a destination is in the cart
+  const isInCart = (destination) => {
+    if (!destination || !destination.name) return false
+    return cartArray.some(cartItem => cartItem && cartItem.name === destination.name)
+  }
 
   return (
     <div className="destination-map-container">
@@ -189,20 +212,38 @@ function DestinationMap({ destinations, center = ABU_DHABI_COORDS, zoom = 3 }) {
           </Popup>
         </Marker>
         {/* Add destination markers */}
-        {destinationsWithCoords.map((destination, index) => (
-          <Marker
-            key={`${destination.name}-${index}`}
-            position={[destination.coordinates.lat, destination.coordinates.lng]}
-          >
-            <Popup>
-              <div>
-                <strong>{destination.name}</strong>
-                <br />
-                <span>{destination.flightTime}</span>
-              </div>
-            </Popup>
-          </Marker>
-        ))}
+        {destinationsWithCoords.map((destination, index) => {
+          const inCart = isInCart(destination)
+          const markerProps = {
+            position: [destination.coordinates.lat, destination.coordinates.lng]
+          }
+          if (inCart && greenIcon) {
+            markerProps.icon = greenIcon
+          }
+          // Include cart state in key to force re-render when cart changes
+          // Use cart length and whether this destination is in cart
+          const cartKey = `${cartArray.length}-${inCart ? 'in' : 'out'}`
+          return (
+            <Marker
+              key={`${destination.name}-${index}-${cartKey}`}
+              {...markerProps}
+            >
+              <Popup>
+                <div>
+                  <strong>{destination.name}</strong>
+                  <br />
+                  <span>{destination.flightTime}</span>
+                  {inCart && (
+                    <>
+                      <br />
+                      <span style={{ color: 'green', fontWeight: 'bold' }}>✓ Dans le panier</span>
+                    </>
+                  )}
+                </div>
+              </Popup>
+            </Marker>
+          )
+        })}
       </MapContainer>
     </div>
   )

@@ -1,7 +1,7 @@
 /**
  * Doha, Qatar Destination
  * 
- * Themes: modern-shopping, architecture-art, food-nightlife
+ * Themes: moderne-shopping, gastronomie-vie-nocturne
  */
 
 export default {
@@ -9,7 +9,7 @@ export default {
   flightTime: "1 hour",
   coordinates: { lat: 25.2854, lng: 51.5310 },
   image: "https://stories.forbestravelguide.com/wp-content/uploads/2024/02/HeroBestDohaHotels-RafflesDoha-ExteriorDay-CreditRafflesDoha.jpg",
-  themes: ["modern-shopping", "architecture-art", "food-nightlife"],
+  themes: ["moderne-shopping", "gastronomie-vie-nocturne"],
   description: "Métropole moderne avec architecture futuriste, shopping de luxe et culture arabe",
   activities: {
     "Culture & Musées": ["Musée d'Art Islamique", "Souq Waqif", "Katara Cultural Village", "Musée National du Qatar"],

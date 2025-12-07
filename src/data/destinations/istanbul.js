@@ -13,7 +13,7 @@ export default [
     flightTime: "3.5 hours",
     coordinates: { lat: 41.0082, lng: 28.9784 },
     image: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    themes: ["historic-cultural", "architecture-art"],
+    themes: ["historique-culturel"],
     description: "Où l'Orient rencontre l'Occident - sites historiques, bazars animés et architecture époustouflante",
     activities: {
       "Culture & Musées": ["Sainte-Sophie", "Mosquée Bleue", "Palais de Topkapi", "Grand Bazar"],
@@ -25,49 +25,49 @@ export default [
       day1: {
         morning: {
           text: "Arrivée à l'aéroport d'Istanbul, transfert à l'hôtel, enregistrement, petit-déjeuner",
-          image: ""
+          image: "https://www.istairport.com/media/yj2fkrl0/1446x800-desktop.jpg?format=webp"
         },
         afternoon: {
           text: "Visite de Sainte-Sophie, Mosquée Bleue, déjeuner au restaurant traditionnel",
-          image: ""
+          image: "https://medias.histoire-et-civilisations.com/api/v1/images/view/62c6eece4c2d6f1e5108540b/width_1000/image.jpg"
         },
         evening: {
           text: "Exploration du Grand Bazar, dîner au restaurant sur le toit avec vue sur le Bosphore",
-          image: ""
+          image: "https://lp-cms-production.imgix.net/2025-01/500pxRF94774693.jpg?auto=format,compress&q=72&w=1440&h=810&fit=crop"
         }
       },
       day2: {
         morning: {
           text: "Petit-déjeuner, visite du Palais de Topkapi, visite de la section Harem",
-          image: ""
+          image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiNdS1vO_zd5RiOQ_X0QB7dgxHfQ9oVlA5vg&s"
         },
         afternoon: {
           text: "Déjeuner, croisière sur le Bosphore, visite du Bazar aux Épices",
-          image: ""
+          image: "https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/ef/4b/7e.jpg"
         },
         evening: {
           text: "Bain turc traditionnel (hammam), dîner au restaurant local, promenade nocturne",
-          image: ""
+          image: "https://toutistanbul.com/wp-content/uploads/2023/01/meilleurs-hammams-a-istanbul-1.jpeg"
         }
       },
       day3: {
         morning: {
           text: "Petit-déjeuner, visite de la Tour de Galata, exploration des quartiers de Galata et Karaköy",
-          image: ""
+          image: "https://media1.thrillophilia.com/filestore/d6vkimlauthuu1goc69srb4ztu30_shutterstock_2171476409%20(1).jpg"
         },
         afternoon: {
           text: "Déjeuner, visite du Palais de Dolmabahçe, promenade le long du Bosphore",
-          image: ""
+          image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQexFsgbuzKHjEddumqpp6sqfTR5RgOpBarbw&s"
         },
         evening: {
           text: "Croisière-dîner sur le Bosphore, spectacle culturel turc, vie nocturne à Beyoğlu",
-          image: ""
+          image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWDOV6vLTNzOZXFV-vIZFnKFmm0EVMHyUpWg&s"
         }
       },
       day4: {
         morning: {
           text: "Petit-déjeuner, shopping de dernière minute au Grand Bazar ou Bazar aux Épices",
-          image: ""
+          image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Istanbul_spice_bazaar_02.jpg/1200px-Istanbul_spice_bazaar_02.jpg"
         },
         afternoon: {
           text: "Vol de retour vers Abu Dhabi",
@@ -80,41 +80,41 @@ export default [
       }
     }
   },
-  // Plan 2: Modern & Shopping Istanbul (example - you can add more plans)
-  {
-    name: "Istanbul, Turkey",
-    planName: "Moderne & Shopping",
-    flightTime: "3.5 hours",
-    coordinates: { lat: 41.0082, lng: 28.9784 },
-    themes: ["modern-shopping", "food-nightlife"],
-    description: "Istanbul moderne avec shopping de luxe, art contemporain et vie nocturne animée",
-    activities: {
-      "Shopping": ["Istinye Park", "Zorlu Center", "Boutiques de Nişantaşı", "Magasins de créateurs"],
-      "Gastronomie & Restaurants": ["Restaurants gastronomiques", "Bars sur les toits", "Cuisine turque moderne"],
-      "Vie Nocturne & Divertissement": ["Boîtes de nuit", "Bars sur les toits", "Lieux de musique live"]
-    },
-    itinerary: {
-      day1: {
-        morning: { text: "...", image: "" },
-        afternoon: { text: "...", image: "" },
-        evening: { text: "...", image: "" }
-      },
-      day2: {
-        morning: { text: "...", image: "" },
-        afternoon: { text: "...", image: "" },
-        evening: { text: "...", image: "" }
-      },
-      day3: {
-        morning: { text: "...", image: "" },
-        afternoon: { text: "...", image: "" },
-        evening: { text: "...", image: "" }
-      },
-      day4: {
-        morning: { text: "...", image: "" },
-        afternoon: { text: "...", image: "" },
-        evening: { text: "...", image: "" }
-      }
-    }
-  }
+  // // Plan 2: Modern & Shopping Istanbul (example - you can add more plans)
+  // {
+  //   name: "Istanbul, Turkey",
+  //   planName: "Moderne & Shopping",
+  //   flightTime: "3.5 hours",
+  //   coordinates: { lat: 41.0082, lng: 28.9784 },
+  //   themes: ["moderne-shopping", "gastronomie-vie-nocturne"],
+  //   description: "Istanbul moderne avec shopping de luxe, art contemporain et vie nocturne animée",
+  //   activities: {
+  //     "Shopping": ["Istinye Park", "Zorlu Center", "Boutiques de Nişantaşı", "Magasins de créateurs"],
+  //     "Gastronomie & Restaurants": ["Restaurants gastronomiques", "Bars sur les toits", "Cuisine turque moderne"],
+  //     "Vie Nocturne & Divertissement": ["Boîtes de nuit", "Bars sur les toits", "Lieux de musique live"]
+  //   },
+  //   itinerary: {
+  //     day1: {
+  //       morning: { text: "...", image: "" },
+  //       afternoon: { text: "...", image: "" },
+  //       evening: { text: "...", image: "" }
+  //     },
+  //     day2: {
+  //       morning: { text: "...", image: "" },
+  //       afternoon: { text: "...", image: "" },
+  //       evening: { text: "...", image: "" }
+  //     },
+  //     day3: {
+  //       morning: { text: "...", image: "" },
+  //       afternoon: { text: "...", image: "" },
+  //       evening: { text: "...", image: "" }
+  //     },
+  //     day4: {
+  //       morning: { text: "...", image: "" },
+  //       afternoon: { text: "...", image: "" },
+  //       evening: { text: "...", image: "" }
+  //     }
+  //   }
+  // }
 ]
 

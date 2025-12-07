@@ -84,7 +84,9 @@ function App() {
           <ThematicSelector
             themes={allThemes}
             allDestinations={allDestinations}
+            cart={cart}
             onSelect={handleThemeSelect}
+            onOpenCart={openCart}
           />
         )}
 

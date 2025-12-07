@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { generateItinerary } from '../utils/itineraryGenerator'
+import { themeDefinitions } from '../data/destinations/index.js'
 
 function DestinationCard({ destination, selectedActivities, inCart, cartFull, onAddToCart, onRemoveFromCart }) {
   const [showItineraryModal, setShowItineraryModal] = useState(false)
@@ -110,8 +111,49 @@ function DestinationCard({ destination, selectedActivities, inCart, cartFull, on
               <div className="itinerary-preview">
                 <div className="itinerary-preview-header">
                   <p className="flight-info">✈️ Temps de vol : {itinerary.flightTime} depuis Abu Dhabi</p>
+                </div>
+
+                {/* Description Section */}
+                <div className="itinerary-preview-section">
+                  <h4>Description</h4>
                   <p className="destination-description">{itinerary.description}</p>
                 </div>
+
+                {/* Themes Section */}
+                {destination.themes && destination.themes.length > 0 && (
+                  <div className="itinerary-preview-section">
+                    <h4>Thèmes</h4>
+                    <div className="themes-list-modal">
+                      {destination.themes.map((themeId, idx) => {
+                        const theme = themeDefinitions[themeId]
+                        return theme ? (
+                          <span key={idx} className="theme-badge-modal">
+                            {theme.icon} {theme.name}
+                          </span>
+                        ) : null
+                      })}
+                    </div>
+                  </div>
+                )}
+
+                {/* Activities Section */}
+                {destination.activities && Object.keys(destination.activities).length > 0 && (
+                  <div className="itinerary-preview-section">
+                    <h4>Activités</h4>
+                    <div className="activities-list-modal">
+                      {Object.entries(destination.activities).map(([category, activities]) => (
+                        <div key={category} className="activity-category-modal">
+                          <strong>{category}:</strong>
+                          <div className="activity-items-modal">
+                            {activities.map((activity, idx) => (
+                              <span key={idx} className="activity-item-modal">{activity}</span>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
                 
                 <div className="itinerary-preview-days">
                   {itinerary.days.map((day) => (
@@ -182,6 +224,16 @@ function DestinationCard({ destination, selectedActivities, inCart, cartFull, on
               </div>
             </div>
             <div className="itinerary-modal-footer">
+              <button 
+                className={`itinerary-modal-cart-button ${inCart ? 'in-cart' : ''} ${cartFull && !inCart ? 'disabled' : ''}`}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  handleButtonClick(e)
+                }}
+                disabled={cartFull && !inCart}
+              >
+                {inCart ? '✕ Retirer du panier' : cartFull ? 'Panier plein (3/3)' : '🛒 Ajouter au panier'}
+              </button>
               <button className="itinerary-modal-close-button" onClick={handleCloseModal}>
                 Fermer
               </button>

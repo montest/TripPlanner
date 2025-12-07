@@ -1,18 +1,34 @@
 import DestinationMap from './DestinationMap'
 
-function ThematicSelector({ themes, allDestinations, onSelect }) {
+function ThematicSelector({ themes, allDestinations, cart = [], onSelect, onOpenCart }) {
   if (!themes || themes.length === 0) {
     return null
   }
 
+  const cartCount = cart.length
+
   return (
     <div className="thematic-selector">
+      <div className="thematic-selector-header">
+        {cartCount > 0 && (
+          <button className="cart-icon-button" onClick={onOpenCart}>
+            🛒 Panier
+            <span className="cart-badge">{cartCount}/3</span>
+          </button>
+        )}
+      </div>
+      
       <h2>Sélectionne un thème pour ton voyage</h2>
+      {cartCount > 0 && (
+        <p className="cart-info-text">
+          {cartCount} destination{cartCount > 1 ? 's' : ''} dans le panier
+        </p>
+      )}
       {/* add a space between the title and the map */}
       <div style={{ height: '20px' }}></div>
 
       <div className="map-section">
-        <DestinationMap destinations={allDestinations || []} />
+        <DestinationMap destinations={allDestinations || []} cart={cart} />
       </div>
 
       <div className="themes-grid">

@@ -1,7 +1,7 @@
 /**
  * Muscat, Oman Destination
  * 
- * Themes: traditional-culture, historic-cultural
+ * Themes: historique-culturel
  */
 
 export default {
@@ -9,7 +9,7 @@ export default {
   flightTime: "1 hour 10 minutes",
   coordinates: { lat: 23.5859, lng: 58.4059 },
   image: "https://images.unsplash.com/photo-1559827260-dbea01e5e788?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-  themes: ["traditional-culture", "historic-cultural"],
+  themes: ["historique-culturel"],
   description: "Capitale omanaise avec forts, souks et côte époustouflante",
   activities: {
     "Culture & Musées": ["Grande Mosquée du Sultan Qaboos", "Opéra Royal", "Fort de Mutrah", "Bait Al Zubair"],

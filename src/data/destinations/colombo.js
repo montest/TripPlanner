@@ -1,7 +1,7 @@
 /**
  * Colombo, Sri Lanka Destination
  * 
- * Themes: traditional-culture, historic-cultural
+ * Themes: historique-culturel
  */
 
 export default {
@@ -9,7 +9,7 @@ export default {
   flightTime: "4 hours",
   coordinates: { lat: 6.9271, lng: 79.8612 },
   image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX8xaVcLvT0Twm3KUbAh559d_x0NTyFyGtNQ&s",
-  themes: ["traditional-culture", "historic-cultural"],
+  themes: ["historique-culturel"],
   description: "Capitale vibrante avec architecture coloniale, temples et culture riche",
   activities: {
     "Culture & Musées": ["Temple Gangaramaya", "Musée National", "Architecture coloniale", "Temples bouddhistes"],

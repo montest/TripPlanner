@@ -68,7 +68,7 @@ function ActivitySelector({
       )}
 
       <div className="map-section">
-        <DestinationMap destinations={filteredDestinations} />
+        <DestinationMap destinations={filteredDestinations} cart={cart} />
       </div>
 
       <div className="destinations-section">

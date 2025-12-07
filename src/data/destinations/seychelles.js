@@ -1,7 +1,7 @@
 /**
  * Seychelles Destination
  * 
- * Themes: island-hopping, romantic-getaway, adventure-diving
+ * Themes: chiller-sur-une-ile, repos-en-bord-de-plage
  */
 
 export default {
@@ -9,7 +9,7 @@ export default {
   flightTime: "4 hours",
   coordinates: { lat: -4.6796, lng: 55.4915 },
   image: "https://images.unsplash.com/photo-1539650116574-75c0c6d73a6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-  themes: ["island-hopping", "romantic-getaway", "adventure-diving"],
+  themes: ["chiller-sur-une-ile", "repos-en-bord-de-plage"],
   description: "Plages immaculées, rochers de granit et forêts tropicales luxuriantes",
   activities: {
     "Détente & Spa": ["Détente sur la plage", "Soins spa", "Promenades dans la nature", "Pique-niques sur la plage"],

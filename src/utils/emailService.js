@@ -1,5 +1,6 @@
 import emailjs from '@emailjs/browser'
 import { emailjsConfig, emailRecipients } from '../config/emailConfig'
+import { themeDefinitions } from '../data/destinations/index.js'
 
 /**
  * Formats itinerary as HTML email content
@@ -19,12 +20,37 @@ export function formatItineraryAsEmail(itinerary) {
   let html = `
     <h2 style="color: #ff6b9d; font-size: 24px; margin-bottom: 15px;">🎂 Itinéraire de Voyage d'Anniversaire : ${escapeHtml(itinerary.destination)}</h2>
     <p style="margin: 10px 0;"><strong>✈️ Temps de vol :</strong> ${escapeHtml(itinerary.flightTime)} depuis Abu Dhabi</p>
-    <p style="margin: 10px 0;"><strong>Description :</strong> ${escapeHtml(itinerary.description)}</p>
   `
   
-  // Only show activities if there are any
+  // Description
+  html += `<h3 style="color: #b886b3; margin-top: 20px; margin-bottom: 10px;">Description</h3>`
+  html += `<p style="margin: 10px 0;">${escapeHtml(itinerary.description)}</p>`
+  
+  // Themes
+  if (itinerary.themes && itinerary.themes.length > 0) {
+    html += `<h3 style="color: #b886b3; margin-top: 20px; margin-bottom: 10px;">Thèmes</h3>`
+    html += `<ul style="margin: 10px 0; padding-left: 20px;">`
+    itinerary.themes.forEach((themeId) => {
+      const theme = themeDefinitions[themeId]
+      if (theme) {
+        html += `<li style="margin: 5px 0;">${escapeHtml(theme.icon)} ${escapeHtml(theme.name)}</li>`
+      }
+    })
+    html += `</ul>`
+  }
+  
+  // All Activities
+  if (itinerary.allActivities && Object.keys(itinerary.allActivities).length > 0) {
+    html += `<h3 style="color: #b886b3; margin-top: 20px; margin-bottom: 10px;">Activités Disponibles</h3>`
+    Object.entries(itinerary.allActivities).forEach(([category, activities]) => {
+      html += `<p style="margin: 8px 0;"><strong>${escapeHtml(category)}:</strong> ${activities.map(a => escapeHtml(a)).join(', ')}</p>`
+    })
+  }
+  
+  // Selected Activities (if different from all activities)
   if (itinerary.matchingActivities && Object.keys(itinerary.matchingActivities).length > 0) {
-    html += `<h3 style="color: #b886b3; margin-top: 20px; margin-bottom: 10px;">Activités Sélectionnées :</h3><ul style="margin: 10px 0; padding-left: 20px;">`
+    html += `<h3 style="color: #b886b3; margin-top: 20px; margin-bottom: 10px;">Activités Sélectionnées</h3>`
+    html += `<ul style="margin: 10px 0; padding-left: 20px;">`
     Object.entries(itinerary.matchingActivities).forEach(([category, activities]) => {
       html += `<li style="margin: 5px 0;"><strong>${escapeHtml(category)}:</strong> ${activities.map(a => escapeHtml(a)).join(', ')}</li>`
     })
@@ -72,10 +98,33 @@ export function formatItineraryAsEmail(itinerary) {
  */
 export function formatItineraryAsText(itinerary) {
   let text = `🎂 Itinéraire de Voyage d'Anniversaire : ${itinerary.destination}\n\n`
-  text += `✈️ Temps de vol : ${itinerary.flightTime} depuis Abu Dhabi\n`
-  text += `Description : ${itinerary.description}\n\n`
+  text += `✈️ Temps de vol : ${itinerary.flightTime} depuis Abu Dhabi\n\n`
   
-  // Only show activities if there are any
+  // Description
+  text += `Description :\n${itinerary.description}\n\n`
+  
+  // Themes
+  if (itinerary.themes && itinerary.themes.length > 0) {
+    text += `Thèmes :\n`
+    itinerary.themes.forEach((themeId) => {
+      const theme = themeDefinitions[themeId]
+      if (theme) {
+        text += `- ${theme.icon} ${theme.name}\n`
+      }
+    })
+    text += `\n`
+  }
+  
+  // All Activities
+  if (itinerary.allActivities && Object.keys(itinerary.allActivities).length > 0) {
+    text += `Activités Disponibles :\n`
+    Object.entries(itinerary.allActivities).forEach(([category, activities]) => {
+      text += `- ${category} : ${activities.join(', ')}\n`
+    })
+    text += `\n`
+  }
+  
+  // Selected Activities (if different from all activities)
   if (itinerary.matchingActivities && Object.keys(itinerary.matchingActivities).length > 0) {
     text += `Activités Sélectionnées :\n`
     Object.entries(itinerary.matchingActivities).forEach(([category, activities]) => {

@@ -72,13 +72,6 @@ function ActivitySelector({
       </div>
 
       <div className="destinations-section">
-        <h3>
-          {filteredDestinations.length > 0 
-            ? selectedTheme
-              ? `Destinations Correspondantes (${filteredDestinations.length})`
-              : `Toutes les Destinations (${filteredDestinations.length})`
-            : `Aucune Destination Correspondante`}
-        </h3>
         
         {filteredDestinations.length === 0 ? (
           <p className="no-results">

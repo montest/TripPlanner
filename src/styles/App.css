@@ -1,15 +1,33 @@
-/* Font Import - TAN St. Canard */
-/* If you have the font file, uncomment and update the path below */
-/*
+/* Font Import - TAN Songbird */
 @font-face {
-  font-family: "TAN St. Canard";
-  src: url("path/to/TAN-St-Canard.woff2") format("woff2"),
-       url("path/to/TAN-St-Canard.woff") format("woff");
+  font-family: "TAN Songbird";
+  src: url("/fonts/TANSONGBIRD.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
-*/
+
+/* Apply TAN Songbird to all titles */
+h1, h2, h3, h4, h5, h6,
+.app-header h1,
+.title-page-title,
+.title-page-destination,
+.title-page-plan,
+.title-page-themes h3,
+.title-page-activities h3,
+.title-page-summary h3,
+.comparison-header h2,
+.comparison-header-section h3,
+.comparison-section h4,
+.theme-card h3,
+.destination-card h4,
+.day-preview-title,
+.day-header h2,
+.itinerary-modal-header h3,
+.itinerary-preview-section h4 {
+  font-family: "TAN Songbird", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+}
 
 /* Global Styles */
 * {
@@ -65,8 +83,7 @@ body {
   font-size: 2.5rem;
   color: var(--accent-color);
   margin-bottom: 10px;
-  font-weight: 700;
-  font-family: "TAN St. Canard", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
 }
 
 .subtitle {
@@ -78,76 +95,6 @@ body {
 /* Main Content */
 .app-main {
   animation: fadeIn 0.6s ease;
-}
-
-/* Destination Type Selector */
-.destination-type-selector {
-  text-align: center;
-}
-
-.destination-type-selector h2 {
-  font-size: 2rem;
-  color: var(--text-dark);
-  margin-bottom: 10px;
-}
-
-.instruction-text {
-  color: var(--text-light);
-  margin-bottom: 40px;
-  font-size: 1.1rem;
-}
-
-.destination-types-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  margin-top: 40px;
-}
-
-.destination-type-card {
-  background: var(--white);
-  border-radius: var(--border-radius);
-  padding: 40px 30px;
-  cursor: pointer;
-  transition: var(--transition);
-  box-shadow: 0 4px 15px var(--shadow);
-  border: 3px solid transparent;
-  animation: fadeInUp 0.6s ease;
-}
-
-.destination-type-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 25px var(--shadow-hover);
-  border-color: var(--primary-color);
-}
-
-.destination-type-card:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-.destination-type-card:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.destination-type-card:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-.destination-type-icon {
-  font-size: 4rem;
-  margin-bottom: 20px;
-}
-
-.destination-type-card h3 {
-  font-size: 1.5rem;
-  color: var(--text-dark);
-  margin-bottom: 10px;
-  font-weight: 600;
-}
-
-.destination-count {
-  color: var(--text-light);
-  font-size: 0.95rem;
 }
 
 /* Thematic Selector */
@@ -207,24 +154,14 @@ body {
 }
 
 .theme-card h3 {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   color: var(--text-dark);
-  font-weight: 600;
+  font-weight: 400;
 }
 
 /* Activity Selector */
 .activity-selector {
   animation: fadeIn 0.6s ease;
-}
-
-.selected-theme-badge {
-  display: inline-block;
-  background: var(--primary-color);
-  color: var(--white);
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-weight: 600;
-  margin-bottom: 10px;
 }
 
 .back-button {
@@ -261,7 +198,7 @@ body {
   font-size: 3rem;
   color: var(--accent-color);
   margin-bottom: 15px;
-  font-weight: 700;
+  font-weight: 400;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -280,54 +217,6 @@ body {
   padding: 30px;
   margin-bottom: 40px;
   box-shadow: 0 4px 15px var(--shadow);
-}
-
-.activities-section h3 {
-  font-size: 1.3rem;
-  margin-bottom: 20px;
-  color: var(--text-dark);
-}
-
-.activities-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-.activity-chip {
-  display: flex;
-  align-items: center;
-  background: var(--secondary-color);
-  padding: 12px 20px;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: var(--transition);
-  border: 2px solid transparent;
-  font-weight: 500;
-}
-
-.activity-chip input {
-  margin-right: 10px;
-  cursor: pointer;
-  width: 18px;
-  height: 18px;
-  accent-color: var(--accent-color);
-}
-
-.activity-chip:hover {
-  background: var(--primary-color);
-  color: var(--white);
-  transform: scale(1.05);
-}
-
-.activity-chip input:checked + span {
-  font-weight: 600;
-}
-
-.activity-chip:has(input:checked) {
-  background: var(--accent-color);
-  color: var(--white);
-  border-color: var(--accent-color);
 }
 
 .map-section {
@@ -393,12 +282,6 @@ body {
 
 .destinations-section {
   margin-top: 40px;
-}
-
-.destinations-section h3 {
-  font-size: 1.5rem;
-  color: var(--text-dark);
-  margin-bottom: 25px;
 }
 
 .no-results {
@@ -470,7 +353,7 @@ body {
 .destination-header h4 {
   font-size: 1.4rem;
   color: var(--text-dark);
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .flight-time {
@@ -620,21 +503,21 @@ body {
   font-size: 2.5rem;
   color: var(--accent-color);
   margin-bottom: 15px;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .title-page-destination {
   font-size: 2.2rem;
   color: var(--text-dark);
   margin-bottom: 10px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .title-page-plan {
   font-size: 1.2rem;
   color: var(--primary-dark);
   margin-bottom: 20px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .title-page-info {
@@ -654,6 +537,7 @@ body {
   font-size: 1.3rem;
   margin-bottom: 20px;
   color: var(--text-dark);
+  font-weight: 400;
 }
 
 .themes-list {
@@ -685,6 +569,7 @@ body {
   font-size: 1.3rem;
   margin-bottom: 20px;
   color: var(--text-dark);
+  font-weight: 400;
 }
 
 .title-page-summary {
@@ -697,13 +582,7 @@ body {
   font-size: 1.3rem;
   margin-bottom: 15px;
   color: var(--text-dark);
-}
-
-.itinerary-title-section {
-  text-align: center;
-  margin-bottom: 40px;
-  padding-bottom: 30px;
-  border-bottom: 2px solid var(--secondary-color);
+  font-weight: 400;
 }
 
 .itinerary-hero-image {
@@ -722,23 +601,6 @@ body {
   object-fit: cover;
 }
 
-.itinerary-title-section h2 {
-  font-size: 2.2rem;
-  color: var(--accent-color);
-  margin-bottom: 15px;
-}
-
-.plan-name-display {
-  font-size: 1rem;
-  color: var(--primary-dark);
-  font-weight: 600;
-  margin-bottom: 10px;
-  padding: 6px 14px;
-  background: var(--secondary-color);
-  border-radius: 20px;
-  display: inline-block;
-}
-
 .flight-info {
   font-size: 1.1rem;
   color: var(--text-light);
@@ -751,19 +613,6 @@ body {
   line-height: 1.6;
   max-width: 800px;
   margin: 0 auto;
-}
-
-.matching-activities-section {
-  background: var(--secondary-color);
-  border-radius: var(--border-radius);
-  padding: 25px;
-  margin-bottom: 40px;
-}
-
-.matching-activities-section h3 {
-  font-size: 1.3rem;
-  margin-bottom: 20px;
-  color: var(--text-dark);
 }
 
 .activities-summary {
@@ -821,6 +670,7 @@ body {
   font-size: 1.8rem;
   color: var(--accent-color);
   margin-bottom: 10px;
+  font-weight: 400;
 }
 
 .day-subtitle {
@@ -1240,21 +1090,21 @@ body {
     font-size: 2.5rem;
     color: var(--accent-color);
     margin-bottom: 20px;
-    font-weight: 700;
+    font-weight: 400;
   }
 
   .title-page-destination {
     font-size: 2rem;
     color: var(--text-dark);
     margin-bottom: 15px;
-    font-weight: 600;
+    font-weight: 400;
   }
 
   .title-page-plan {
     font-size: 1.2rem;
     color: var(--primary-dark);
     margin-bottom: 25px;
-    font-weight: 500;
+    font-weight: 400;
   }
 
   .title-page-info {
@@ -1317,7 +1167,7 @@ body {
     font-size: 2.5rem;
     color: var(--accent-color);
     margin-bottom: 10px;
-    font-weight: 700;
+    font-weight: 400;
   }
 
   .day-subtitle {
@@ -1376,9 +1226,6 @@ body {
     display: none;
   }
 
-  .itinerary-title-section {
-    display: none;
-  }
 
   .itinerary-footer {
     display: none;
@@ -1448,111 +1295,6 @@ body {
   box-shadow: none;
 }
 
-/* Cart Component */
-.cart {
-  animation: fadeIn 0.6s ease;
-}
-
-.cart-empty {
-  background: var(--white);
-  border-radius: var(--border-radius);
-  padding: 60px 40px;
-  text-align: center;
-  box-shadow: 0 4px 15px var(--shadow);
-}
-
-.cart-empty h2 {
-  font-size: 2rem;
-  color: var(--text-dark);
-  margin-bottom: 15px;
-}
-
-.cart-empty p {
-  color: var(--text-light);
-  font-size: 1.1rem;
-}
-
-.cart-header {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.cart-header h2 {
-  font-size: 2rem;
-  color: var(--text-dark);
-  margin-bottom: 10px;
-}
-
-.cart-count {
-  color: var(--text-light);
-  font-size: 1.1rem;
-}
-
-.cart-destinations {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  margin-bottom: 30px;
-}
-
-.cart-item {
-  background: var(--white);
-  border-radius: var(--border-radius);
-  padding: 20px;
-  box-shadow: 0 4px 15px var(--shadow);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.cart-item-content {
-  flex: 1;
-}
-
-.remove-button {
-  background: #dc3545;
-  color: var(--white);
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
-  align-self: flex-start;
-}
-
-.remove-button:hover {
-  background: #c82333;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
-}
-
-.cart-actions {
-  text-align: center;
-  margin-top: 30px;
-}
-
-.compare-button,
-.proceed-button {
-  background: linear-gradient(135deg, var(--accent-color), var(--primary-dark));
-  color: var(--white);
-  border: none;
-  padding: 16px 32px;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
-  box-shadow: 0 4px 15px rgba(107, 157, 255, 0.3);
-}
-
-.compare-button:hover,
-.proceed-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(107, 157, 255, 0.4);
-}
-
 /* Destination Comparison */
 .destination-comparison {
   animation: fadeIn 0.6s ease;
@@ -1588,21 +1330,6 @@ body {
   grid-template-columns: repeat(3, 1fr);
 }
 
-.comparison-card {
-  background: var(--white);
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  box-shadow: 0 4px 15px var(--shadow);
-  transition: var(--transition);
-  display: flex;
-  flex-direction: column;
-}
-
-.comparison-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px var(--shadow-hover);
-}
-
 .comparison-image-container {
   width: 100%;
   height: 200px;
@@ -1617,17 +1344,6 @@ body {
   transition: var(--transition);
 }
 
-.comparison-card:hover .comparison-image {
-  transform: scale(1.05);
-}
-
-.comparison-card-content {
-  padding: 25px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
 .comparison-header-section {
   margin-bottom: 20px;
 }
@@ -1636,7 +1352,7 @@ body {
   font-size: 1.4rem;
   color: var(--text-dark);
   margin-bottom: 10px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .comparison-section {
@@ -1647,7 +1363,7 @@ body {
   font-size: 1rem;
   color: var(--accent-color);
   margin-bottom: 8px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .comparison-description {
@@ -1756,7 +1472,7 @@ body {
 .itinerary-modal-header h3 {
   margin: 0;
   font-size: 1.4rem;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--white);
 }
 
@@ -1821,7 +1537,7 @@ body {
   font-size: 1.2rem;
   color: var(--accent-color);
   margin-bottom: 12px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .itinerary-preview-section .destination-description {
@@ -1899,7 +1615,7 @@ body {
   font-size: 1.3rem;
   color: var(--accent-color);
   margin-bottom: 15px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .day-preview-schedule {
@@ -2242,9 +1958,6 @@ body {
     flex-direction: column;
   }
 
-  .time-slot-preview-content-reverse {
-    flex-direction: column;
-  }
 
   .time-slot-preview-image {
     flex: 0 0 auto;
@@ -2287,8 +2000,5 @@ body {
     font-size: 1rem;
   }
 
-  .itinerary-title-section h2 {
-    font-size: 1.6rem;
-  }
 }
 

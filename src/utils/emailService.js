@@ -74,15 +74,15 @@ export function formatItineraryAsEmail(itinerary) {
         <h4 style="color: #d4a5c7; margin-top: 0; margin-bottom: 12px; font-size: 18px;">Jour ${day.day}</h4>
         <div style="margin: 8px 0;">
           <strong>🌅 Matin :</strong> ${escapeHtml(morningText)}
-          ${morningImage ? `<br><img src="${escapeHtml(morningImage)}" alt="Activité du matin" style="max-width: 100%; height: auto; border-radius: 8px; margin-top: 8px;" />` : ''}
+          ${morningImage ? `<br><img src="${escapeHtml(morningImage)}" alt="Activité du matin" style="width: 100%; max-width: 400px; height: 200px; object-fit: cover; border-radius: 8px; margin-top: 8px; display: block;" />` : ''}
         </div>
         <div style="margin: 8px 0;">
           <strong>☀️ Après-midi :</strong> ${escapeHtml(afternoonText)}
-          ${afternoonImage ? `<br><img src="${escapeHtml(afternoonImage)}" alt="Activité de l'après-midi" style="max-width: 100%; height: auto; border-radius: 8px; margin-top: 8px;" />` : ''}
+          ${afternoonImage ? `<br><img src="${escapeHtml(afternoonImage)}" alt="Activité de l'après-midi" style="width: 100%; max-width: 400px; height: 200px; object-fit: cover; border-radius: 8px; margin-top: 8px; display: block;" />` : ''}
         </div>
         <div style="margin: 8px 0;">
           <strong>🌙 Soirée :</strong> ${escapeHtml(eveningText)}
-          ${eveningImage ? `<br><img src="${escapeHtml(eveningImage)}" alt="Activité du soir" style="max-width: 100%; height: auto; border-radius: 8px; margin-top: 8px;" />` : ''}
+          ${eveningImage ? `<br><img src="${escapeHtml(eveningImage)}" alt="Activité du soir" style="width: 100%; max-width: 400px; height: 200px; object-fit: cover; border-radius: 8px; margin-top: 8px; display: block;" />` : ''}
         </div>
       </div>
     `

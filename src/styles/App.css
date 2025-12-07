@@ -24,8 +24,10 @@ h1, h2, h3, h4, h5, h6,
 .day-preview-title,
 .day-header h2,
 .itinerary-modal-header h3,
-.itinerary-preview-section h4 {
-  font-family: "TAN Songbird", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+.itinerary-preview-section h4,
+.time-label,
+.comparison-time-slot-group-title {
+  font-family: "TAN Songbird", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
   font-weight: 400;
 }
 
@@ -699,7 +701,8 @@ body {
 }
 
 .time-label {
-  font-weight: 600;
+  font-family: "TAN Songbird", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+  font-weight: 400;
   color: var(--accent-color);
   margin-bottom: 15px;
   font-size: 1.1rem;
@@ -1193,8 +1196,9 @@ body {
   }
 
   .time-label {
+    font-family: "TAN Songbird", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
     font-size: 1.3rem;
-    font-weight: 700;
+    font-weight: 400;
     color: var(--accent-color);
     margin-bottom: 15px;
   }
@@ -1631,10 +1635,12 @@ body {
 }
 
 .time-slot-preview strong {
+  font-family: "TAN Songbird", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+  font-weight: 400;
   display: block;
   color: var(--accent-color);
   margin-bottom: 8px;
-  font-size: 0.95rem;
+  font-size: 0.60rem;
 }
 
 .time-slot-preview-content {
@@ -1787,7 +1793,7 @@ body {
   color: var(--primary-dark);
   margin-bottom: 15px;
   text-align: center;
-  font-weight: 600;
+  font-weight: 400;
   padding: 8px 0;
 }
 

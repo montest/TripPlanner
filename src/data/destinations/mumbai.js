@@ -57,7 +57,7 @@ export default {
       },
       evening: {
         text: "Coucher du soleil au Bandra-Worli Sea Link, dîner au restaurant sur le toit, vie nocturne à Bandra",
-        image: ""
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyoWW1CBPdKxZsWvhebuL4ZafyfC4LHpEavg&s"
       }
     },
     day4: {

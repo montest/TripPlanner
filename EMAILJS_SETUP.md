@@ -20,7 +20,15 @@ This guide will help you set up EmailJS to enable email functionality in the Bir
 
 1. Go to **Email Templates** in your dashboard
 2. Click **Create New Template**
-3. Use this template structure:
+3. **IMPORTANT:** In the "To Email" field, use `{{to_email}}` (NOT a hardcoded email address)
+   - If you hardcode an email here, it will override the parameter and all emails will go to that address
+   - The "To Email" field should contain: `{{to_email}}`
+4. Use this template structure:
+
+**To Email Field (IMPORTANT!):**
+```
+{{to_email}}
+```
 
 **Subject:**
 ```
@@ -117,6 +125,12 @@ export const emailRecipients = [
 - **Emails not arriving**: Check spam folder, verify EmailJS service is connected properly
 - **Rate limit errors**: Free tier allows 200 emails/month. Consider upgrading if needed
 - **HTML showing as plain text**: Make sure your EmailJS template uses triple braces `{{{message_html}}}` (not double braces `{{message_html}}`) to render HTML properly. Update your template and save it again.
+- **All emails going to the same address / User-entered email not receiving**: 
+  - **This is the most common issue!** Check your EmailJS template's "To Email" field
+  - It MUST contain `{{to_email}}` (with the double braces)
+  - If it has a hardcoded email address, remove it and replace with `{{to_email}}`
+  - Save the template and try again
+  - The "To Email" field should look like: `{{to_email}}` (not `your-email@example.com`)
 
 ## Security Note
 

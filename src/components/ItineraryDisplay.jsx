@@ -370,7 +370,7 @@ function ItineraryDisplay({ destination, selectedActivities, onBack, onReset }) 
             </div>
           )}
           <div className="title-page-content">
-            <h1 className="title-page-title">🎂 Itinéraire de Voyage d'Anniversaire</h1>
+            <h1 className="title-page-title">🐪 💙 🥔 Itinéraire de Voyage d'Anniversaire 🥔 💙 🐪</h1>
             <h2 className="title-page-destination">{itinerary.destination}</h2>
             {itinerary.planName && (
               <p className="title-page-plan">📋 {itinerary.planName}</p>
@@ -439,8 +439,7 @@ function ItineraryDisplay({ destination, selectedActivities, onBack, onReset }) 
               <h3>Vue d'Ensemble du Voyage</h3>
               <p>Voyage de 4 Jours • {itinerary.days.length} Jours d'Aventure</p>
               <p className="footer-note">
-                🥔 Ceci est un itinéraire de base. On l'ajustera 🥔
-              </p>
+              🐪 💙 🥔 Ceci est un itinéraire de base. On l'ajustera 🥔 💙 🐪 </p>
             </div>
           </div>
         </div>

@@ -8,7 +8,7 @@ export default {
   name: "Muscat, Oman",
   flightTime: "1 hour 10 minutes",
   coordinates: { lat: 23.5859, lng: 58.4059 },
-  image: "https://images.unsplash.com/photo-1559827260-dbea01e5e788?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+  image: "https://media.cntravellerme.com/photos/6798b1d5ef028473ebb86e99/16:9/w_2560%2Cc_limit/1379966790",
   themes: ["historique-culturel"],
   description: "Capitale omanaise avec forts, souks et côte époustouflante",
   activities: {
@@ -21,43 +21,43 @@ export default {
     day1: {
       morning: {
         text: "Arrivée à l'aéroport de Mascate, enregistrement à l'hôtel, petit-déjeuner",
-        image: ""
+        image: "https://www.consultancy-me.com/illustrations/news/spotlight/2024-02-09-033613577-German_airport_consultants_helping_Muscat_Airport_with_preparation_spot.jpg"
       },
       afternoon: {
         text: "Visite de la Grande Mosquée du Sultan Qaboos, déjeuner au restaurant traditionnel",
-        image: ""
+        image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2f/36/10/f0/sultan-qaboos-grand-mosque.jpg?w=900&h=500&s=1"
       },
       evening: {
         text: "Exploration du Souq de Mutrah, promenade sur la corniche, dîner au restaurant de fruits de mer",
-        image: ""
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzyt2AiBj82k4qAKJ6EUYl2AqDz08UAZ0RKA&s"
       }
     },
     day2: {
       morning: {
         text: "Petit-déjeuner, visite de l'Opéra Royal, Musée Bait Al Zubair",
-        image: ""
+        image: "https://upload.wikimedia.org/wikipedia/commons/b/b3/Opera_house_Muscat.jpg"
       },
       afternoon: {
         text: "Déjeuner, visite du Fort de Mutrah, exploration de la vieille Mascate",
-        image: ""
+        image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/d5/6d/5f/matrah-fort-oman.jpg?w=1200&h=1200&s=1"
       },
       evening: {
         text: "Tour d'observation des dauphins, dîner au restaurant de plage",
-        image: ""
+        image: "https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=auto,quality=60,width=1440,height=650,dpr=1/tour_img/cd3cb1be002b2e86d67bc7b21db52e887edd198598177dbe633f72b0522a7274.jpeg"
       }
     },
     day3: {
       morning: {
         text: "Petit-déjeuner, excursion d'une journée à Nizwa (fort et souq), déjeuner omanais traditionnel",
-        image: ""
+        image: "https://peregrinetreks.com/wp-content/uploads/2024/09/Nizwa-Fort.webp"
       },
       afternoon: {
         text: "Retour à Mascate, visite du Palais Al Alam (vue extérieure), shopping",
-        image: ""
+        image: "https://a.travel-assets.com/findyours-php/viewfinder/images/res70/59000/59920-Old-Muscat.jpg"
       },
       evening: {
         text: "Dîner omanais traditionnel, visite d'un café local, narguilé",
-        image: ""
+        image: "https://c8.alamy.com/comp/2C6415G/delicious-dishes-of-traditional-omani-food-served-on-carpet-in-traditional-restaurant-oman-2C6415G.jpg"
       }
     },
     day4: {

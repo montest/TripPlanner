@@ -8,7 +8,7 @@ import { themeDefinitions } from '../data/destinations/index.js'
 export function generateMarkdown(itinerary) {
   if (!itinerary) return ''
 
-  let md = `# 🎂 Itinéraire de Voyage d'Anniversaire\n\n`
+  let md = `# 🐪 💙 🥔 Itinéraire de Voyage d'Anniversaire 🥔 💙 🐪\n\n`
   md += `## ${itinerary.destination}\n\n`
   
   // Add destination image if available
@@ -101,7 +101,7 @@ export function generateMarkdown(itinerary) {
   })
   
   md += `---\n\n`
-  md += `🥔 Ceci est un itinéraire de base. On l'ajustera 🥔\n\n`
+  md += `🐪 💙 🥔 Ceci est un itinéraire de base. On l'ajustera 🥔 💙 🐪\n\n`
   
   return md
 }

@@ -16,9 +16,9 @@ export function formatItineraryAsEmail(itinerary) {
       .replace(/"/g, '&quot;')
       .replace(/'/g, '&#039;')
   }
-  
+
   let html = `
-    <h2 style="color: #ff6b9d; font-size: 24px; margin-bottom: 15px;">🎂 Itinéraire de Voyage d'Anniversaire : ${escapeHtml(itinerary.destination)}</h2>
+    <h2 style="color: #ff6b9d; font-size: 24px; margin-bottom: 15px;">🐪 💙 🥔 Itinéraire de Voyage d'Anniversaire 🥔 💙 🐪 : ${escapeHtml(itinerary.destination)}</h2>
     <p style="margin: 10px 0;"><strong>✈️ Temps de vol :</strong> ${escapeHtml(itinerary.flightTime)} depuis Abu Dhabi</p>
   `
   
@@ -97,7 +97,7 @@ export function formatItineraryAsEmail(itinerary) {
  * Formats itinerary as plain text email content
  */
 export function formatItineraryAsText(itinerary) {
-  let text = `🎂 Itinéraire de Voyage d'Anniversaire : ${itinerary.destination}\n\n`
+  let text = `🐪 💙 🥔 Itinéraire de Voyage d'Anniversaire 🥔 💙 🐪 : ${itinerary.destination}\n\n`
   text += `✈️ Temps de vol : ${itinerary.flightTime} depuis Abu Dhabi\n\n`
   
   // Description
@@ -185,34 +185,41 @@ export async function sendItineraryEmail(itinerary, primaryRecipient, secondaryR
     const emailHtml = formatItineraryAsEmail(itinerary)
     const emailText = formatItineraryAsText(itinerary)
 
-    // Send email to primary recipient
+    // IMPORTANT: Make sure your EmailJS template's "To Email" field uses {{to_email}}
+    // If it's hardcoded, it will override this parameter and send to the hardcoded address instead
+    
+    // Send email to primary recipient (user-entered email)
+    const primaryRecipientEmail = primaryRecipient.trim()
     const primaryTemplateParams = {
-      to_email: primaryRecipient.trim(),
-      to_name: primaryRecipient.trim().split('@')[0], // Use email username as name
-      subject: `🎂 Itinéraire de Voyage d'Anniversaire : ${itinerary.destination}`,
+      to_email: primaryRecipientEmail,
+      to_name: primaryRecipientEmail.split('@')[0], // Use email username as name
+      subject: `🐪 💙 🥔 Itinéraire de Voyage d'Anniversaire 🥔 💙 🐪 : ${itinerary.destination}`,
       message_html: emailHtml,
       message_text: emailText,
       destination: itinerary.destination,
       flight_time: itinerary.flightTime,
     }
 
+    console.log('Sending email to primary recipient:', primaryRecipientEmail)
     await emailjs.send(
       emailjsConfig.serviceId,
       emailjsConfig.templateId,
       primaryTemplateParams
     )
 
-    // Send separate email to secondary recipient
+    // Send separate email to secondary recipient (hardcoded email)
+    const secondaryRecipientEmail = secondaryRecipient.trim()
     const secondaryTemplateParams = {
-      to_email: secondaryRecipient.trim(),
-      to_name: secondaryRecipient.trim().split('@')[0],
-      subject: `🎂 Itinéraire de Voyage d'Anniversaire : ${itinerary.destination} (Copie)`,
+      to_email: secondaryRecipientEmail,
+      to_name: secondaryRecipientEmail.split('@')[0],
+      subject: ` Itinéraire de Voyage d'Anniversaire : ${itinerary.destination} (Copie)`,
       message_html: emailHtml,
       message_text: emailText,
       destination: itinerary.destination,
       flight_time: itinerary.flightTime,
     }
 
+    console.log('Sending email to secondary recipient:', secondaryRecipientEmail)
     await emailjs.send(
       emailjsConfig.serviceId,
       emailjsConfig.templateId,

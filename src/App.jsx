@@ -75,7 +75,7 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>🎂 Planifie ton voyage d'Anniversaire</h1>
+        <h1>🐪 💙 🥔 Planifie ton voyage d'Anniversaire 🥔 💙 🐪</h1>
         <p className="subtitle">Petite escapade de 4 jours depuis Abu Dhabi</p>
       </header>
 

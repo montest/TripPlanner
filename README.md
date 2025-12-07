@@ -1,4 +1,4 @@
-# Birthday Trip Planner 🎂
+# Birthday Trip Planner 🥔 💙 🐪
 
 A beautiful, interactive web application to plan a perfect 4-day birthday trip from Abu Dhabi. Choose your destination type, select activities, and get a personalized itinerary!
 
